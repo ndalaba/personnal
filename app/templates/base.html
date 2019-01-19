@@ -12,46 +12,99 @@
 
     {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename="css/bootstrap.min.css") }}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/main.css")  }}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/cyan.css") }}" />
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700%7CMontserrat:500" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/transition-animations.css")  }}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/font-awesome.min.css")  }}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/pe-icon-7-stroke.css")  }}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/jquery.mCustomScrollbar.css")  }}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/animate.min.css")  }}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/magnific-popup.css")  }}">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/stories.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/linecons.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/normalize.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/brown.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/style.css")  }}">
     {% endblock %}
+    <!-- CSS | Google Fonts -->
+
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:200,400,300,500,600" rel="stylesheet" type="text/css">
+
+    <noscript>
+        <style>
+            @media screen and (max-width: 755px) {
+            .hs-content-scroller {
+                overflow: visible;
+            }
+        }
+    </style>
+    </noscript>
 </head>
 
 <body>
-    <div class="preloader">
-        <div class="preloader-container">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
+    <!-- Page preloader -->
+    <div id="page-loader">
+        <canvas id="demo-canvas"></canvas>
     </div>
-    <div id="wrapper" class="pt-wrapper">
-        {% include 'inc/nav.html' %}
-        {% include 'inc/sidebar.html' %}
-        <div class="pagewrapper">
-            <!-- Toggle Buttons -->
-            <a href="#left-menu-toggle" class="btn btn-link " id="left-menu-toggle"><span class="peicon pe-7s-menu"></span></a>
-            <a href="#right-menu-toggle" class="btn btn-link " id="right-menu-toggle"><span class="peicon pe-7s-user"></span></a>
-            {% include 'home.html' %}
-            {% include 'about.html' %}
-            {% include 'services.html' %}
-            {% include 'portfolio.html' %}
-            {% include 'blog.html' %}
-            {% include 'contact.html' %}
+    <!-- container -->
+    <div id="hs-container" class="hs-container">
 
+        <!-- Sidebar-->
+        {% include 'inc/sidebar.html' %}
+        <!-- End sidebar -->
+
+        <!-- Go To Top Button -->
+        <a href="#hs-menu" class="hs-totop-link"><i class="fa fa-chevron-up"></i></a>
+        <!-- End Go To Top Button -->
+
+        <!-- hs-content-scroller -->
+        <div class="hs-content-scroller">
+            <!-- Header -->
+            {% include 'inc/header.html' %}
+            <!-- End Header -->
+
+            <!-- hs-content-wrapper -->
+            <div class="hs-content-wrapper">
+                <!-- About section -->
+                {% include 'about.html' %}
+                <!-- End About Section -->
+
+                <!-- Resume Section -->
+                {% include 'resume.html' %}
+                <!-- End Resume Section-->
+
+                <!-- service Section -->
+                {% include 'services.html' %}
+                <!-- End service Section -->
+
+
+                <!-- Team/ process Section -->
+                {% include 'team.html' %}
+                <!-- End Team/ process Section -->
+
+                <!-- pricing Section -->
+                {% include 'pricing.html' %}
+                <!-- End pricing Section -->
+
+                <!-- Skills Section -->
+                {% include 'skill.html' %}
+                <!-- End Skills Section -->
+
+                <!-- Works Section -->
+                {% include 'portfolio.html' %}
+                <!-- End Works Section -->
+
+                <!-- Contact Section -->
+                {% include 'contact.html' %}
+                <!-- End Contact Section -->
+            </div>
+            <!-- End hs-content-wrapper -->
         </div>
+        <!-- End hs-content-scroller -->
+    </div>
+    <!-- End container -->
+    <div id="my-panel">
     </div>
     {% block javascript %}
     <script type="text/javascript" src="{{url_for('static',filename="js/jquery.min.js") }}"></script>
-    <script type="text/javascript" src="{{url_for('static',filename="js/site.min.js") }}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename="js/bootstrap.min.js") }}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename="js/default.js") }}"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    <script type="text/javascript" src="{{url_for('static',filename="js/watch.js") }}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename="js/layout.js") }}"></script>
     <script type="text/javascript" src="{{url_for('static',filename="js/main.js") }}"></script>
     {% endblock %}
 </body>
