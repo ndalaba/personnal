@@ -6,7 +6,7 @@ from app.utils.str_helper import generate_uuid
 
 class Entity(object):
 
-    uid = Column(String(30),index=True,unique=True,nullable=False, default=generate_uuid(5))
+    uid = Column(String(30),index=True,unique=True,nullable=False, default=generate_uuid(8))
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow)
     
