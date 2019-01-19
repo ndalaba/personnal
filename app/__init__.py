@@ -23,4 +23,4 @@ def home():
 
 @app.route('/admin')
 def admin():
-    return render_template('admin/base.html')
+    return render_template('admin/home.html')
