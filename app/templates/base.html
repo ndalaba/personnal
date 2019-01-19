@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Diallo Mamadou N'Dalaba">
+    <link rel="shortcut icon" href="img/favicon.png">
+    <title>{% block title %}Bienvenue!{% endblock %}</title>
+
+    {% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename="css/bootstrap.min.css") }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/main.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/cyan.css") }}" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700%7CMontserrat:500" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/transition-animations.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/font-awesome.min.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/pe-icon-7-stroke.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/jquery.mCustomScrollbar.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/animate.min.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/magnific-popup.css")  }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename="css/stories.css")  }}">
+    {% endblock %}
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="preloader-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+    <div id="wrapper" class="pt-wrapper">
+        {% include 'inc/nav.html' %}
+        {% include 'inc/sidebar.html' %}
+        <div class="pagewrapper">
+            <!-- Toggle Buttons -->
+            <a href="#left-menu-toggle" class="btn btn-link " id="left-menu-toggle"><span class="peicon pe-7s-menu"></span></a>
+            <a href="#right-menu-toggle" class="btn btn-link " id="right-menu-toggle"><span class="peicon pe-7s-user"></span></a>
+            {% include 'home.html' %}
+            {% include 'about.html' %}
+            {% include 'services.html' %}
+            {% include 'portfolio.html' %}
+            {% include 'blog.html' %}
+            {% include 'contact.html' %}
+
+        </div>
+    </div>
+    {% block javascript %}
+    <script type="text/javascript" src="{{url_for('static',filename="js/jquery.min.js") }}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename="js/site.min.js") }}"></script>
+    <script type="text/javascript" src="{{url_for('static',filename="js/main.js") }}"></script>
+    {% endblock %}
+</body>
+
+</html>
