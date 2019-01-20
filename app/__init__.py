@@ -24,3 +24,7 @@ def home():
 @app.route('/admin')
 def admin():
     return render_template('admin/home.html')
+
+@app.route('/login')
+def login():
+    return render_template('admin/login.html')

@@ -2,12 +2,12 @@
 {% block title %} Dashboard {% endblock %}
 {% block pagestylesheet %}
 <!-- Plugins For This Page -->
-<link rel="stylesheet" href="{{url_for('static',filename="admin/css/chartist.min.css")}}">
-<link rel="stylesheet" href="{{url_for('static',filename="admin/css/chartist-plugin-tooltip.min.css")}}">
-<link rel="stylesheet" href="{{url_for('static',filename="admin/css/asPieProgress.min.css")}}">
-<link rel="stylesheet" href="{{url_for('static',filename="admin/css/jquery-selective.min.css")}}">
-<link rel="stylesheet" href="{{url_for('static',filename="admin/css/bootstrap-datepicker.min.css")}}">
-<link rel="stylesheet" href="{{url_for('static',filename="admin/css/asScrollable.min.css")}}">
+<link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/chartist/chartist.min.css")}}">
+<link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.css")}}">
+<link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/aspieprogress/asPieProgress.min.css")}}">
+<link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/jquery-selective/jquery-selective.min.css")}}">
+<link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/bootstrap-datepicker/bootstrap-datepicker.min.css")}}">
+<link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/asscrollable/asScrollable.min.css")}}">
 
 <!-- Page -->
 <link rel="stylesheet" href="{{url_for('static',filename="admin/css/team.min.css")}}">
@@ -659,23 +659,23 @@
 
 {% block pagescriptplugin %}
 <!-- Plugins For This Page -->
-<script src="{{ url_for('static',filename='admin/js/chartist.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/chartist-plugin-tooltip.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/jquery-asPieProgress.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/jquery.matchHeight-min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/jquery-selective.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/chartist/chartist.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/chartist-plugin-tooltip/chartist-plugin-tooltip.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/aspieprogress/jquery-asPieProgress.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/matchheight/jquery.matchHeight-min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/jquery-selective/jquery-selective.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
 {% endblock %}
 {% block pagescript %}
 <!-- Page -->
 <script src="{{ url_for('static',filename='admin/js/Site.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/asscrollable.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/slidepanel.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/switchery.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/matchheight.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/aspieprogress.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/bootstrap-datepicker.min.js')}}"></script>
-<script src="{{ url_for('static',filename='admin/js/asscrollable.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/asscrollable/asscrollable.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/slidepanel/slidepanel.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/switchery/switchery.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/matchheight/matchheight.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/aspieprogress/aspieprogress.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/bootstrap-datepicker/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/asscrollable/asscrollable.min.js')}}"></script>
 
 <script src="{{ url_for('static',filename='admin/js/team.min.js')}}"></script>
 {% endblock %}
