@@ -14,15 +14,13 @@ login_manager = LoginManager(app)
 login_manager.login_message = "Veillez vous connecter!"
 login_manager.login_view = "auth.login"
 
-from app.entity import Job, Service, User, Skill, Work, Education
+from .entity import Job, Service, User, Skill, Work, Education
 
-from app.auth import auth
-app.register_blueprint(auth)
+from .admin import admin as admin_blueprint
+app.register_blueprint(admin_blueprint, url_prefix='/admin')
 
-from app.admin import admin
-app.register_blueprint(admin,url_prefix='/admin')
+from .auth import auth as auth_blueprint
+app.register_blueprint(auth_blueprint)
 
-
-@app.route('/')
-def home():
-    return render_template('base.html')
+from .front import front as front_blueprint
+app.register_blueprint(front_blueprint)

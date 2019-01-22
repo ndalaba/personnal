@@ -8,5 +8,5 @@ from wtforms import TextField, validators, ValidationError, PasswordField, Submi
 class LoginForm(Form):
     email = TextField("Email", [validators.Required("Veillez renseigner le champ email"), validators.Email('Renseigner une adresse mail valide')])
     password = PasswordField('Mot de passe', [validators.Required('Veillez renseigner un mot de passe')])
-    remember_me= BooleanField('Rester connecté')
+    remember_me= BooleanField('Rester connecte')
     submit = SubmitField('Se connecter')
