@@ -43,37 +43,38 @@
     <div class="page vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">>
         <div class="page-content vertical-align-middle animation-slide-top animation-duration-1">
             <div class="brand">
-                <img class="brand-img" src="{{url_for('static',filename="admin/img/logo.png")}}" alt="...">
-                <h2 class="brand-text">Remark</h2>
+                <img class="brand-img" src="{{url_for('static',filename="admin/img/logo.png")}}" alt="Logo N'Dalaba Diallo">
+                <h2 class="brand-text">DMN</h2>
             </div>
-            <p>Sign into your pages account</p>
-            <form method="post" action="login.html">
+            <p>Connection à l'administration</p>
+            <form method="post" action="">
+
                 <div class="form-group">
-                    <label class="sr-only" for="inputName">Name</label>
-                    <input type="text" class="form-control" id="inputName" name="name" placeholder="Name">
+                    <label class="sr-only" for="inputEmail">{{form.email.label}}</label>
+                    {{form.email(class="form-control",id='inputEmail',name='email','placeholder'='adresse
+                    email',type="email")}}
                 </div>
                 <div class="form-group">
-                    <label class="sr-only" for="inputEmail">Email</label>
-                    <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label class="sr-only" for="inputPassword">Password</label>
+                    <label class="sr-only" for="inputPassword">{{form.password.label}}</label>
+                    {{form.password(class="form-control",id='inputPassword',name='password')}}
                     <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password">
                 </div>
                 <div class="form-group clearfix">
                     <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
-                        <input type="checkbox" id="inputCheckbox" name="remember">
-                        <label for="inputCheckbox">Remember me</label>
+                        {{form.remember_me(id='inputCheckbox')}}
+
+                        <label for="inputCheckbox">{{form.remember_me.label}}</label>
                     </div>
-                    <a class="float-right" href="forgot-password.html">Forgot password?</a>
+                    {#<a class="float-right" href="forgot-password.html">Forgot password?</a>#}
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                {{form.submit(class='btn btn-primary btn-block')}}
+            
             </form>
-            <p>Still no account? Please go to <a href="register.html">Register</a></p>
+            {#<p>Still no account? Please go to <a href="register.html">Register</a></p>#}
 
             <footer class="page-copyright page-copyright-inverse">
-                <p>WEBSITE BY Creation Studio</p>
-                <p>© 2018. All RIGHT RESERVED.</p>
+                <p>WEBSITE BY N'Dalaba Diallo</p>
+                <p>© {{now.year}}. TOUT DROIT RESERVE.</p>
                 <div class="social">
                     <a class="btn btn-icon btn-pure" href="javascript:void(0)">
                         <i class="icon bd-twitter" aria-hidden="true"></i>

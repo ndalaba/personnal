@@ -16,15 +16,13 @@ login_manager.login_view = "auth.login"
 
 from app.entity import Job, Service, User, Skill, Work, Education
 
+from app.auth import auth
+app.register_blueprint(auth)
+
+from app.admin import admin
+app.register_blueprint(admin,url_prefix='/admin')
+
 
 @app.route('/')
 def home():
     return render_template('base.html')
-
-@app.route('/admin')
-def admin():
-    return render_template('admin/home.html')
-
-@app.route('/login')
-def login():
-    return render_template('admin/login.html')
