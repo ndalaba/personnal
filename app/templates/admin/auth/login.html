@@ -48,7 +48,7 @@
             </div>
             <p>Connection à l'administration</p>
             <form method="post" action="{{url_for('auth.login')}}">
-
+                {% include "admin/inc/success_error.html" %}
                 <div class="form-group">
                     <label class="sr-only" for="inputEmail">{{form.email.label}}</label>
                     {{form.email(class="form-control",id='inputEmail',placeholder='adresse email',type="email",required="required")}}
@@ -65,7 +65,7 @@
                     {#<a class="float-right" href="#">Forgot password?</a>#}
                 </div>
                 {{form.submit(class='btn btn-primary btn-block')}}
-            
+
             </form>
             {#<p>Still no account? Please go to <a href="#">Register</a></p>#}
 
