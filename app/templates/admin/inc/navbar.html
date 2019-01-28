@@ -12,7 +12,7 @@
                 title="Remark">
             <img class="navbar-brand-logo navbar-brand-logo-special" src="{{url_for('static',filename="admin/img/logo-colored.png")}}"
                 title="Remark">
-            <span class="navbar-brand-text hidden-xs-down"> N'Dalaba</span>
+            <span class="navbar-brand-text hidden-xs-down"> DMN</span>
         </a>
         <button type="button" class="navbar-toggler collapsed" data-target="#site-navbar-search" data-toggle="collapse">
             <span class="sr-only">Toggle Search</span>
@@ -54,20 +54,16 @@
                     <a class="nav-link navbar-avatar" data-toggle="dropdown" href="#" aria-expanded="false"
                         data-animation="scale-up" role="button">
                         <span class="avatar avatar-online">
-                            <img src="{{url_for('static',filename="admin/img/5.jpg")}}" alt="...">
+                            <img src="{{url_for('static',filename=current_user.photo)}}" alt="{{current_user.name}}" style="width: 30px;height: 30px;">
                             <i></i>
                         </span>
                     </a>
                     <div class="dropdown-menu" role="menu">
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-user"
-                                aria-hidden="true"></i> Profile</a>
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-payment"
-                                aria-hidden="true"></i> Billing</a>
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-settings"
-                                aria-hidden="true"></i> Settings</a>
+                        <a class="dropdown-item" href="{{url_for('admin.profil')}}" role="menuitem"><i class="icon wb-user"  aria-hidden="true"></i> Profils</a>
+                    
                         <div class="dropdown-divider" role="presentation"></div>
-                        <a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i class="icon wb-power"
-                                aria-hidden="true"></i> Logout</a>
+                        <a class="dropdown-item" href="{{url_for('auth.logout')}}" role="menuitem"><i class="icon wb-power"
+                                aria-hidden="true"></i> Deconnection</a>
                     </div>
                 </li>
 

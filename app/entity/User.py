@@ -21,7 +21,7 @@ class User(Entity, UserMixin, db.Model):
     bio = db.Column(db.Text)
     facebook = db.Column(db.String(150))
     github = db.Column(db.String(150))
-    youtube = db.Column(db.String(150))
+    linkedin = db.Column(db.String(150))
     twitter = db.Column(db.String(150))
 
     educations = db.relationship('Education', back_populates="user")
@@ -29,6 +29,8 @@ class User(Entity, UserMixin, db.Model):
     services = db.relationship('Service', back_populates="user")
     skills = db.relationship('Skill', back_populates="user")
     works = db.relationship('Work', back_populates="user")
+    hobbies = db.relationship('Hobby', back_populates="user")
+    activities = db.relationship('Activity', back_populates="user")
 
     @property
     def password(self):

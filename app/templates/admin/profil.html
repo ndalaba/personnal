@@ -1,0 +1,94 @@
+{% extends "admin/base.html" %}
+{% block title %} Profil {{current_user.name}} {% endblock %}
+{% block pagestylesheet %}
+
+<!-- Page -->
+<link rel="stylesheet" href="{{url_for('static',filename="admin/css/profile.min.css")}}">
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Page -->
+<div class="page">
+    <div class="page-content container-fluid">
+            {% include "admin/inc/success_error.html" %}
+        <div class="row">
+            {% include "admin/inc/profil.html" %}
+
+            <div class="col-lg-9">
+                <div class="panel">
+                    <div class="user-release card card-shadow">
+                        <div class="card-block p-0">
+                            <form action="{{url_for('admin.activities',uid='NULL')}}" method="POST">
+                                <input class="user-release-input form-control form-control-lg" type="text" name="activity" placeholder="Activité recente">
+                                <div class="user-release-actions">
+                                    <button class="btn btn-pure btn-default icon wb-image" type="button"></button>
+                                    <button class="btn btn-pure btn-default icon wb-video" type="button"></button>
+                                    <button class="btn btn-pure btn-default icon wb-calendar" type="button"></button>
+                                    <button class="btn btn-pure btn-default icon wb-map" type="button"></button>
+                                    <button class="btn btn-primary btn-round float-right" type="submit">Envoyer</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>            
+                <!-- Panel -->
+                <div class="panel panel-bordered">
+                    
+                        <div class="panel-body">
+                                <h4>Activités</h3>
+                            <div class="example table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>#</th>  
+                                    <th>Date</th>                    
+                                    <th>Activités</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% for activity in activities %}
+                                        <tr>
+                                            <td>{{activity.id}}</td>
+                                            <td>{{activity.created_at | datetimeformat}}</td>
+                                            <td>{{activity.description}}</td>
+                                            <td>                
+                                                <a href="{{url_for('admin.activities',uid=activity.uid)}}" class="btn btn-sm btn-icon btn-flat btn-default" data-toggle="tooltip" data-original-title="Supprimer"> <i class="icon wb-close" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                      </div>        
+                <!-- End Panel -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page -->
+
+{% endblock %}
+
+{% block pagescript %}
+<!-- Page -->
+<script src="{{ url_for('static',filename='admin/js/Site.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/asscrollable/asscrollable.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/slidepanel/slidepanel.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/switchery/switchery.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/responsive-tabs.min.js')}}"></script>
+<script src="{{ url_for('static',filename='admin/vendor/tabs.min.js')}}"></script>
+<script>
+    (function (document, window, $) {
+        'use strict';
+
+        var Site = window.Site;
+        $(document).ready(function () {
+            Site.run();
+        });
+    })(document, window, jQuery);
+</script>
+{% endblock %}
