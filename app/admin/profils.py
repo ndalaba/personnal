@@ -32,7 +32,7 @@ def activities(uid=None):
 @admin.route('/profils')
 def profil():
     activities=Activity.query.order_by(Activity.created_at.desc())
-    return render_template('admin/profil.html',page='page-profile',activities=activities)
+    return render_template('admin/profils/profil.html',page='page-profile',activities=activities)
 
 
 @admin.route('/edit_profil', methods=['GET','POST'])
@@ -64,4 +64,4 @@ def edit_profil():
         else:
             flash('Les champs du formulaire ne sont pas bien remplis','error')
     
-    return render_template('admin/edit_profil.html', page='page-profile',form=form)
+    return render_template('admin/profils/edit_profil.html', page='page-profile',form=form)

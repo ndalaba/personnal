@@ -1,0 +1,70 @@
+<header class="slidePanel-header">
+  <div class="slidePanel-actions" aria-label="actions" role="group">
+    <button type="button" class="btn btn-icon btn-pure btn-inverse slidePanel-close actions-top icon wb-close"
+      aria-hidden="true"></button>
+    <div class="btn-group actions-bottom" role="group">
+      <div class="float-left" style="position:relative;">
+        <button type="button" class="btn btn-icon btn-pure btn-inverse icon wb-more-horizontal" data-toggle="dropdown"
+          aria-expanded="false" aria-hidden="true"></button>
+        <div class="dropdown-menu dropdown-menu-right" role="menu">
+          <a class="dropdown-item" href="#" onclick="loadEditModal(event)" data-url="{{url_for('admin.edit_education',uid=education.uid)}}"><i
+              class="icon wb-pencil" aria-hidden="true"></i> Modifier</a>
+          <div class="dropdown-divider" role="presentation"></div>
+          <a class="dropdown-item delete" href="{{url_for('admin.delete_education',uid=education.uid)}}"><i class="icon wb-trash"
+              aria-hidden="true"></i> Supprimer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h1>{{education.formation}}</h1>
+</header>
+<div class="slidePanel-inner">
+  <section class="slidePanel-inner-section">
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">Etablissement:</label>
+      <div class="col-md-9">
+        {{education.school}}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">Lieu: </label>
+      <div class="col-md-9">
+        {{education.location}}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">Début formation:</label>
+      <div class="col-md-9">
+        {{education.begin_at | datetimeformat('%m%Y')}}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">Fin formation:</label>
+      <div class="col-md-9">
+        {{education.end_at | datetimeformat('%m%Y')}}
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">Etat</label>
+      <div class="col-md-9">
+        {% if education.published %}
+
+        <span class="badge badge-success">Publié</span>
+
+        {% else %}
+
+        <span class="badge badge-danger">Brouillon</span>
+
+        {% endif %}
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-md-3 form-control-label">Description:</label>
+      <div class="col-md-9">
+        {{education.description}}
+      </div>
+    </div>
+  </section>
+
+</div>

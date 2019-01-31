@@ -17,6 +17,11 @@ class Work(Entity, db.Model):
 
     user = db.relationship('User', back_populates="works")
 
+    def __init__(self,title,user_id):
+        Entity.__init__(self)
+        self.title=title
+        self.user_id=user_id
+
 class Skill(Entity, db.Model):
 
     __tablename__ = "skills"
@@ -31,6 +36,11 @@ class Skill(Entity, db.Model):
 
     user = db.relationship('User', back_populates="skills")
 
+    def __init__(self,skill,user_id):
+        Entity.__init__(self)
+        self.skill=skill
+        self.user_id=user_id
+
 class Service(Entity, db.Model):
 
     __tablename__ = "services"
@@ -44,6 +54,11 @@ class Service(Entity, db.Model):
 
     user = db.relationship('User', back_populates="services")
 
+    def __init__(self,service,user_id):
+        Entity.__init__(self)
+        self.service=service
+        self.user_id=user_id
+
 class Job(Entity, db.Model):
 
     __tablename__ = "jobs"
@@ -52,12 +67,17 @@ class Job(Entity, db.Model):
     title = db.Column(db.String(190), nullable=False)
     location = db.Column(db.String(190), nullable=False)
     company = db.Column(db.String(190), nullable=False)
-    begin = db.Column(db.DateTime)
-    end = db.Column(db.DateTime)
+    begin_at = db.Column(db.DateTime)
+    end_at = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     description = db.Column(db.Text)
 
     user = db.relationship('User', back_populates="jobs")
+
+    def __init__(self,title,user_id):
+        Entity.__init__(self)
+        self.title=title
+        self.user_id=user_id
 
 class Hobby(Entity, db.Model):
 
@@ -70,6 +90,11 @@ class Hobby(Entity, db.Model):
     description = db.Column(db.Text)
 
     user = db.relationship('User', back_populates="hobbies")
+
+    def __init__(self,title,user_id):
+        Entity.__init__(self)
+        self.title=title
+        self.user_id=user_id
 
 class Activity(Entity, db.Model):
 
@@ -94,9 +119,14 @@ class Education(Entity, db.Model):
     formation = db.Column(db.String(190), nullable=False)
     location = db.Column(db.String(190), nullable=False)
     school = db.Column(db.String(190), nullable=False)
-    begin = db.Column(db.DateTime)
-    end = db.Column(db.DateTime)
+    begin_at = db.Column(db.DateTime)
+    end_at = db.Column(db.DateTime)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     description = db.Column(db.Text)
 
     user = db.relationship('User', back_populates="educations")
+
+    def __init__(self,formation,user_id):
+        Entity.__init__(self)
+        self.formation=formation
+        self.user_id=user_id

@@ -1,6 +1,6 @@
 from flask_wtf import Form
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import TextField, validators, TextAreaField,SubmitField,DateField, RadioField
+from wtforms import TextField, validators, TextAreaField,SubmitField,DateField, BooleanField
 
 
 class UserForm(Form):
@@ -21,29 +21,32 @@ class Education(Form):
     formation= TextField('Titre',[validators.Required('Veillez renseigner le champ titre')])
     location= TextField('Lieu',[validators.Required('Veillez renseigner le champ lieu')])
     school= TextField('Etablissement',[validators.Required('Veillez renseigner le champ établissement')])
-    begin= DateField('Début',[validators.Required('Veillez renseigner le champ début')])
-    end= DateField('Fin',[validators.Required('Veillez renseigner le champ fin')])
+    begin_at= DateField('Début',[validators.Required('Veillez renseigner le champ début')])
+    end_at= DateField('Fin',[validators.Required('Veillez renseigner le champ fin')])
     description= TextAreaField('Description')
-    published= RadioField('Publié')
+    published= BooleanField('Publié')
 
 class Job(Form):
     title= TextField('Titre',[validators.Required('Veillez renseigner le champ titre')])
     location= TextField('Lieu',[validators.Required('Veillez renseigner le champ lieu')])
     company= TextField('Entreprise',[validators.Required('Veillez renseigner le champ entreprise')])
-    begin= DateField('Début',[validators.Required('Veillez renseigner le champ début')])
-    end= DateField('Fin',[validators.Required('Veillez renseigner le champ fin')])
+    begin_at= DateField('Début',[validators.Required('Veillez renseigner le champ début')])
+    end_at= DateField('Fin',[validators.Required('Veillez renseigner le champ fin')])
     description= TextAreaField('Description')
+    published= BooleanField('Publié')
 
 class Service(Form):
     service= TextField('Titre',[validators.Required('Veillez renseigner le champ titre')])
     icon= TextField('Icon',[validators.Required('Veillez renseigner le champ icon')])
     description= TextAreaField('Description')
     details= TextAreaField('Détails')
+    published= BooleanField('Publié')
 
 class Hobby(Form):
     service= TextField('Titre',[validators.Required('Veillez renseigner le champ titre')])
     icon= TextField('Icon',[validators.Required('Veillez renseigner le champ icon')])
     description= TextAreaField('Description')
+    published= BooleanField('Publié')
 
 class Skill(Form):
     skill= TextField('Titre',[validators.Required('Veillez renseigner le champ titre')])
@@ -51,9 +54,11 @@ class Skill(Form):
     experience= TextField("Année d'expérience",[validators.Required("Veillez renseigner le champ année d'expérience")])
     percent= TextField('Pourcentage')
     description= TextAreaField('Description')
+    published= BooleanField('Publié')
 
 class Work(Form):
     title= TextField('Titre',[validators.Required('Veillez renseigner le champ titre')])
     techno= TextField('Technologie',[validators.Required('Veillez renseigner le champ technologie')])
     url= TextField('Lien')
     image= FileField('Image',validators=[FileAllowed(['jpg','jpeg','png'])])
+    published= BooleanField('Publié')
