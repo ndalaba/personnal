@@ -1,6 +1,6 @@
 from flask_wtf import Form
 from flask_wtf.file import FileField, FileAllowed
-from wtforms import TextField, validators, TextAreaField,SubmitField,DateField, BooleanField
+from wtforms import TextField, validators, TextAreaField,SubmitField,DateField, BooleanField,PasswordField
 
 
 class UserForm(Form):
@@ -16,6 +16,12 @@ class UserForm(Form):
     bio= TextAreaField('Biographie')
     photo= FileField('Photo',validators=[FileAllowed(['jpg','jpeg','png'])])
     submit= SubmitField('Valider')
+
+class PasswordForm(Form):
+    #last_password=PasswordField('Ancien mot de passe',[validators.Required('Veillez renseigner l\'ancien mot de passe')])
+    password = PasswordField('Mot de passe',[validators.Required(),validators.EqualTo('confirm_password')])
+    confirm_password = PasswordField('Confirmation mot de passe')
+    submit = SubmitField('Modifier')
 
 class Education(Form):
     formation= TextField('Titre',[validators.Required('Veillez renseigner le champ titre')])

@@ -1,7 +1,7 @@
 from flask import render_template,flash,redirect,url_for,request
 from flask_login import login_required, current_user
 from . import admin
-from app.admin.forms import UserForm
+from app.admin.forms import UserForm, PasswordForm
 from app.repository.Repository import repository
 from app.utils.upload import uploadImage
 from app.entity.Entities import Activity
@@ -31,11 +31,13 @@ def activities(uid=None):
 
 @admin.route('/profils')
 def profil():
+    form= UserForm(obj=current_user)
+    passwordForm= PasswordForm()
     activities=Activity.query.order_by(Activity.created_at.desc())
-    return render_template('admin/profils/profil.html',page='page-profile',activities=activities)
+    return render_template('admin/profils/profil.html',form=form,activities=activities,passwordForm=passwordForm)
 
 
-@admin.route('/edit_profil', methods=['GET','POST'])
+@admin.route('/edit_profil', methods=['POST'])
 @login_required
 def edit_profil():
 
@@ -63,5 +65,23 @@ def edit_profil():
         
         else:
             flash('Les champs du formulaire ne sont pas bien remplis','error')
+    else:
+        return redirect(url_for('admin.profil'))
+
+@admin.route('/edit_password', methods=['POST'])
+@login_required
+def edit_password():
+
+    form= PasswordForm()
     
-    return render_template('admin/profils/edit_profil.html', page='page-profile',form=form)
+    if request.method=='POST': 
+        if form.validate_on_submit:
+            current_user.password=form.password.data
+            repository.save(current_user)
+            flash('Mot de passe modifié avec succès','success')
+            return redirect(url_for('admin.profil'))
+        
+        else:
+            flash('Les champs du formulaire ne sont pas bien remplis','error')
+    else:
+        return redirect(url_for('admin.profil'))
