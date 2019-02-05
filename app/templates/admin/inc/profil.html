@@ -1,0 +1,67 @@
+<div class="col-lg-3">
+        <!-- Page Widget -->
+        <div class="card card-shadow text-center">
+            <div class="card-block">
+                <a class="avatar avatar-lg" href="javascript:void(0)">
+                    <img src="{{url_for('static',filename=current_user.photo)}}" alt="{{current_user.name}}" style="width: 130px;height: 130px;">  
+                </a>
+                <h4 class="profile-user">{{current_user.name }}</h4>
+                <p class="profile-job">{{current_user.job if current_user.job != None}}</p>
+                <p>{{current_user.bio if current_user.bio != None}}.</p>
+                <div class="profile-social">
+                    <a class="icon bd-twitter" href="{{current_user.twitter}}"></a>
+                    <a class="icon bd-facebook" href="{{current_user.facebook}}"></a>
+                    <a class="icon bd-linkedin" href="{{current_user.linkedin}}"></a>
+                    <a class="icon bd-github" href="{{current_user.github}}"></a>
+                </div>
+                <a href="{{url_for('admin.edit_profil')}}" class="btn btn-primary">Modifier</a>
+            
+            </div>
+            {#<div class="card-footer">
+                <div class="row no-space">
+                    <div class="col-4">
+                        <strong class="profile-stat-count">260</strong>
+                        <span>Follower</span>
+                    </div>
+                    <div class="col-4">
+                        <strong class="profile-stat-count">180</strong>
+                        <span>Following</span>
+                    </div>
+                    <div class="col-4">
+                        <strong class="profile-stat-count">2000</strong>
+                        <span>Tweets</span>
+                    </div>
+                </div>
+            </div>#}
+        </div>
+        <div class="card p-20">
+                <h4 class="card-title">Contact</h4>
+                <p class="card-text">
+                 Details informations de contact
+                </p>
+                <div class="card-block p-0">
+                  <p data-info-type="phone" class="mb-10 text-nowrap">
+                    <i class="icon wb-user mr-10"></i>
+                    <span class="text-break">{{current_user.phone if current_user.phone != None}}<span>
+                  </span></span></p>
+                  <p data-info-type="email" class="mb-10 text-nowrap">
+                    <i class="icon wb-envelope mr-10"></i>
+                    <span class="text-break">{{current_user.email if current_user.email != None}} <span>
+                  </span></span></p>
+                  <p data-info-type="fb" class="mb-10 text-nowrap">
+                    <i class="icon bd-facebook mr-10"></i>
+                    <span class="text-break">{{current_user.facebook if current_user.facebook != None}}<span>
+                  </span></span></p>
+                  <p data-info-type="twitter" class="mb-10 text-nowrap">
+                    <i class="icon bd-twitter mr-10"></i>
+                    <span class="text-break">{{current_user.twitter if current_user.twitter != None}} <span>
+                  </span></span></p>
+                  <p data-info-type="address" class="mb-10 text-nowrap">
+                    <i class="icon wb-map mr-10"></i>
+                    <span class="text-break">{{current_user.location if current_user.location != None}}</span>
+                </span>
+            </p>
+                </div>
+              </div>
+        <!-- End Page Widget -->
+    </div>

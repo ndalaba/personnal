@@ -10,3 +10,9 @@ class LoginForm(Form):
     password = PasswordField('Mot de passe', [validators.Required('Veillez renseigner un mot de passe')])
     remember_me= BooleanField('Rester connecte')
     submit = SubmitField('Se connecter')
+
+class PasswordForm(Form):
+    last_password=PasswordField('Ancien mot de passe',[validators.Required('Veillez renseigner l\'ancien mot de passe')])
+    password = PasswordField('Password',[validators.Required(),validators.EqualTo('confirm_password')])
+    confirm_password = PasswordField('Confirm Password')
+    submit = SubmitField('Modifier')

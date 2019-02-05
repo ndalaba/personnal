@@ -14,7 +14,8 @@ login_manager = LoginManager(app)
 login_manager.login_message = "Veillez vous connecter!"
 login_manager.login_view = "auth.login"
 
-from .entity import Job, Service, User, Skill, Work, Education
+from .entity.Entities import Job, Service, Skill, Work, Education, Hobby,Activity
+from .entity.User import User
 
 from .admin import admin as admin_blueprint
 
@@ -27,3 +28,7 @@ app.register_blueprint(auth_blueprint)
 from .front import front as front_blueprint
 
 app.register_blueprint(front_blueprint)
+
+
+from app.utils.filter import datetimeformat
+app.jinja_env.filters['datetimeformat'] = datetimeformat
