@@ -64,7 +64,6 @@ class Skill(Form):
     skill = StringField('Titre', [validators.Required('Veillez renseigner le champ titre')])
     level = StringField('Niveau', [validators.Required('Veillez renseigner le champ niveau')])
     experience = StringField("Année d'expérience", [validators.Required("Veillez renseigner le champ année d'expérience")])
-    percent = StringField('Pourcentage')
     description = TextAreaField('Description')
     published = BooleanField('Publié')
 
@@ -75,3 +74,4 @@ class Work(Form):
     url = StringField('Lien')
     image = FileField('Image', validators=[FileAllowed(['jpg', 'jpeg', 'png'])])
     published = BooleanField('Publié')
+    description = TextAreaField('Description')

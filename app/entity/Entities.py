@@ -13,7 +13,7 @@ class Work(Entity, db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     description = db.Column(db.Text)
     url = db.Column(db.String(190))
-    image= db.Column(db.String(190))
+    image= db.Column(db.String(190),default='upload/noimage.png')
 
     user = db.relationship('User', back_populates="works")
 
@@ -30,7 +30,6 @@ class Skill(Entity, db.Model):
     skill = db.Column(db.String(190), nullable=False)
     level = db.Column(db.String(190), nullable=False)
     experience = db.Column(db.Integer)
-    percent = db.Column(db.Integer)
     description = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 

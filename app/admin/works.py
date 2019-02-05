@@ -23,7 +23,7 @@ def add_work():
         if form.validate_on_submit:
             work = Work(title=form.title.data, user_id=current_user.id)
             if form.image.data:
-                image = uploadImage(form.photo.data, 'admin/upload/works/')
+                image = uploadImage(form.image.data, 'upload/works/')
                 work.image = image
             work.techno = form.techno.data
             work.url = form.url.data
@@ -48,7 +48,7 @@ def edit_work(uid):
     if request.method == 'POST':
         if form.validate_on_submit:
             if form.image.data and form.image.data != work.image:
-                image = uploadImage(form.image.data, 'admin/upload/works/')
+                image = uploadImage(form.image.data, 'upload/works/')
                 work.image = image
             work.title = form.title.data
             work.techno = form.techno.data
@@ -61,6 +61,7 @@ def edit_work(uid):
         else:
             flash('Formulaire incorrect', 'error')
     return render_template('admin/works/work.html', form=form, works=works, url=url_for('admin.edit_work', uid=uid), work=work)
+
 
 @admin.route('/works/delete/<uid>')
 @login_required

@@ -1,20 +1,20 @@
 <form method="POST" action="{{ url }}" class="form-horizontal">
     <div class="form-group row">
-        <label class="col-sm-2 control-label">{{ form.formation.label }}</label>
+        <label class="col-sm-2 control-label">{{ form.title.label }}</label>
         <div class="col-sm-10">
-            {{ form.formation(class='form-control',required='required',placeholder='Titre formation') }}
+            {{ form.title(class='form-control',required='required',placeholder='Titre expérience') }}
         </div>
     </div>
     <div class="form-group row">
-        <label class="col-sm-2 control-label">{{ form.school.label }}</label>
+        <label class="col-sm-2 control-label">{{ form.company.label }}</label>
         <div class="col-sm-10">
-            {{ form.school(class='form-control',required='required',placeholder='Etablissement') }}
+            {{ form.company(class='form-control',required='required',placeholder='Entreprise') }}
         </div>
     </div>
     <div class="form-group row">
         <label class="col-sm-2 control-label">{{ form.location.label }}</label>
         <div class="col-sm-10">
-            {{ form.location(class='form-control',required='required',placeholder='Lieu formation') }}
+            {{ form.location(class='form-control',required='required',placeholder='Lieu') }}
         </div>
     </div>
     <div class="form-group row">

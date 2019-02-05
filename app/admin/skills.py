@@ -4,14 +4,16 @@ from . import admin
 from app.repository.Repository import repository
 from app.entity.Entities import Skill
 from .forms import Skill as SkillForm
+import random
 
+colors = ['success', 'info', 'danger', 'warning', 'primary']
 
 @admin.route('/skills')
 @login_required
 def skills():
     form = SkillForm()
     skills = Skill.query.all()
-    return render_template('admin/skills/skill.html', form=form, skills=skills, url=url_for('admin.add_skill'))
+    return render_template('admin/skills/skill.html', form=form, skills=skills, url=url_for('admin.add_skill'),colors=colors,random=random)
 
 
 @admin.route('/skills/add', methods=['POST'])
@@ -23,7 +25,6 @@ def add_skill():
             skill = Skill(skill=form.skill.data, user_id=current_user.id)
             skill.level = form.level.data
             skill.experience = form.experience.data
-            skill.percent = form.percent.data
             skill.description = form.description.data
             skill.published = form.published.data
             repository.save(skill)
@@ -47,7 +48,6 @@ def edit_skill(uid):
             skill.skill = form.skill.data
             skill.level = form.level.data
             skill.experience = form.experience.data
-            skill.percent = form.percent.data
             skill.description = form.description.data
             skill.published = form.published.data
             repository.save(skill)
@@ -55,7 +55,7 @@ def edit_skill(uid):
             return redirect(url_for('admin.skills'))
         else:
             flash('Formulaire incorrect', 'error')
-    return render_template('admin/skills/skill.html', form=form, skills=skills, url=url_for('admin.edit_skill', uid=uid), skill=skill)
+    return render_template('admin/skills/skill.html', form=form, skills=skills, url=url_for('admin.edit_skill', uid=uid), skill=skill,colors=colors,random=random)
 
 @admin.route('/skills/delete/<uid>')
 @login_required

@@ -5,7 +5,7 @@ from app.admin.forms import UserForm, PasswordForm
 from app.repository.Repository import repository
 from app.utils.upload import uploadImage
 from app.entity.Entities import Activity
-
+import  random
 
 @admin.route('/home')
 @admin.route('/')
@@ -33,7 +33,8 @@ def profil():
     form= UserForm(obj=current_user)
     passwordForm= PasswordForm()
     activities=Activity.query.order_by(Activity.created_at.desc())
-    return render_template('admin/profils/profil.html',form=form,activities=activities,passwordForm=passwordForm)
+    colors = ['success', 'info', 'danger', 'warning', 'primary']
+    return render_template('admin/profils/profil.html',form=form,activities=activities,passwordForm=passwordForm,random=random,colors=colors)
 
 @admin.route('/edit_profil', methods=['POST'])
 @login_required
@@ -44,7 +45,7 @@ def edit_profil():
     if request.method=='POST': 
         if form.validate_on_submit:
             if form.photo.data and form.photo.data!=current_user.photo:
-                image = uploadImage(form.photo.data,'admin/upload/users/')
+                image = uploadImage(form.photo.data,'upload/users/')
                 current_user.photo= image
 
             current_user.name=form.name.data
