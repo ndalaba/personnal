@@ -23,6 +23,7 @@
     <!-- AadminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ url_for('static',filename="admin/css/skins/_all-skins.min.css") }}">
+    <link rel="stylesheet" href="{{ url_for('static',filename="admin/css/jquery-confirm.min.css") }}">
     <link rel="stylesheet" href="{{ url_for('static',filename="admin/css/custom.css") }}">
 
 
@@ -59,7 +60,8 @@
 <!-- AadminLTE App -->
 <script src="{{ url_for('static',filename="admin/js/adminlte.min.js") }}"></script>
 <!-- AadminLTE for demo purposes -->
-<script src="{{ url_for('static',filename="admin/js/demo.js") }}"></script>
+<script src="{{ url_for('static',filename="admin/js/jquery-confirm.min.js") }}"></script>
+<script src="{{ url_for('static',filename="admin/js/custom.js") }}"></script>
 <script>
     $(document).ready(function () {
         $('.sidebar-menu').tree()

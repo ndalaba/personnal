@@ -14,7 +14,7 @@
         <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search...">
+                <input type="text" name="q" class="form-control" placeholder="Rechercher...">
                 <span class="input-group-btn">
                     <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                     </button>
@@ -26,7 +26,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
            
-            <li class="treeview active">
+            <li class="treeview {% if request.path=='/admin/educations' %} active {% endif %}">
                 <a href="#">
                     <i class="fa fa-institution"></i> <span>Educations</span>
                     <span class="pull-right-container">
@@ -35,7 +35,6 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{url_for('admin.educations')}}"><i class="fa fa-circle-o"></i> Educations</a></li>
-                    <li><a href="profile.html"><i class="fa fa-circle-o"></i> Profile</a></li>
                 </ul>
             </li>
         </ul>

@@ -13,7 +13,6 @@ from app.entity.Entities import Activity
 def home():
     return render_template('admin/home.html',page='dashboard')
 
-
 @admin.route('activities/<uid>',methods=['POST','GET'])
 @login_required
 def activities(uid=None):
@@ -36,7 +35,6 @@ def profil():
     activities=Activity.query.order_by(Activity.created_at.desc())
     return render_template('admin/profils/profil.html',form=form,activities=activities,passwordForm=passwordForm)
 
-
 @admin.route('/edit_profil', methods=['POST'])
 @login_required
 def edit_profil():
@@ -46,7 +44,7 @@ def edit_profil():
     if request.method=='POST': 
         if form.validate_on_submit:
             if form.photo.data and form.photo.data!=current_user.photo:
-                image = uploadImage(form.photo.data,'admin/upload/')
+                image = uploadImage(form.photo.data,'admin/upload/users/')
                 current_user.photo= image
 
             current_user.name=form.name.data

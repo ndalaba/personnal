@@ -2,7 +2,8 @@
 {% block title %} Profil {{current_user.name}} {% endblock %}
 {% block content %}
 
-<div class="content-wrapper">
+<!--suppress ALL -->
+    <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
@@ -10,7 +11,7 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="{{url_for('admin.home')}}"><i class="fa fa-dashboard"></i> Accueil</a></li>
-            <li class="active">User profile</li>
+            <li class="active">Profil</li>
         </ol>
     </section>
     {% include "admin/inc/success_error.html" %}
@@ -24,8 +25,7 @@
                 <!-- Profile Image -->
                 <div class="box box-primary">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="{{url_for('static',filename=current_user.photo)}}"
-                            alt="{{current_user.name}}">
+                        <img class="profile-user-img img-responsive img-circle" src="{{url_for('static',filename=current_user.photo)}}"  alt="{{current_user.name}}">
 
                         <h3 class="profile-username text-center">{{current_user.name}}</h3>
 
@@ -104,7 +104,7 @@
                                     <div class="user-block">                                
                                         <span class="username">
                                             <a>{{activity.description}}</a>
-                                            <a href="{{url_for('admin.activities',uid=activity.uid)}}" class="pull-right btn-box-tool delete"><i class="fa fa-times"></i></a>
+                                            <a title="Supprimer l'activité?" href="{{url_for('admin.activities',uid=activity.uid)}}" class="pull-right btn-box-tool delete"><i class="fa fa-times"></i></a>
                                         </span>
                                         <span class="description">{{activity.created_at | datetimeformat}}</span>
                                     </div>
@@ -115,7 +115,7 @@
                                 <form class="form-horizontal" action="{{url_for('admin.activities',uid='NULL')}}" method="POST">
                                     <div class="form-group margin-bottom-none">
                                         <div class="col-sm-10">
-                                            <input class="form-control input-sm" placeholder="activité", name="activity">
+                                            <input class="form-control input-sm" placeholder="Activité" name="activity">
                                         </div>
                                         <div class="col-sm-2">
                                             <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Ajouter</button>
