@@ -210,13 +210,13 @@ jQuery(document).ready(function($) {
     /* ---------------------------------------------------------------------- */
     $(".map-location").on('click', function() {
         //set your google maps parameters
-        var latitude = 37.775,
-            longitude = -122.4183333,
+        var latitude = 48.9448607,
+            longitude = 2.3786584,
             map_zoom = 14;
 
         //google map custom marker icon - .png fallback for IE11
         var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
-        var marker_url = (is_internetExplorer11) ? 'images/gmaps/cd-icon-location.png' : 'images/gmaps/cd-icon-location.svg';
+        var marker_url = (is_internetExplorer11) ? 'static/images/gmaps/cd-icon-location.png' : 'static/images/gmaps/cd-icon-location.svg';
 
         //define the basic color of your map, plus a value for saturation and brightness
         var main_color = '#2d313f',
@@ -224,7 +224,8 @@ jQuery(document).ready(function($) {
             brightness_value = 5;
 
         //we define here the style of the map
-        var style = [{
+        var style =
+            [{
             "featureType": "landscape",
             "elementType": "labels",
             "stylers": [{
@@ -290,8 +291,8 @@ jQuery(document).ready(function($) {
                 streetViewControl: false,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 scrollwheel: false,
-                styles: style
-            }
+              //  styles: style
+            };
             //inizialize the map
         var map = new google.maps.Map(document.getElementById('google-container'), map_options);
         //add a custom marker to the map                

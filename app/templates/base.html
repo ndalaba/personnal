@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="Diallo Mamadou N'Dalaba">
-    <link rel="shortcut icon" href="img/favicon.png">
-    <title>{% block title %}Bienvenue!{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static',filename=user.photo) }}">
+    <title>{% block title %}{{ user.name }} - Bienvenue!{% endblock %}</title>
 
     {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename="css/bootstrap.min.css") }}">
@@ -42,54 +42,33 @@
     <!-- container -->
     <div id="hs-container" class="hs-container">
 
-        <!-- Sidebar-->
         {% include 'inc/sidebar.html' %}
-        <!-- End sidebar -->
 
-        <!-- Go To Top Button -->
         <a href="#hs-menu" class="hs-totop-link"><i class="fa fa-chevron-up"></i></a>
-        <!-- End Go To Top Button -->
 
-        <!-- hs-content-scroller -->
         <div class="hs-content-scroller">
             <!-- Header -->
             {% include 'inc/header.html' %}
-            <!-- End Header -->
 
-            <!-- hs-content-wrapper -->
             <div class="hs-content-wrapper">
-                <!-- About section -->
+
                 {% include 'about.html' %}
-                <!-- End About Section -->
 
-                <!-- Resume Section -->
                 {% include 'resume.html' %}
-                <!-- End Resume Section-->
 
-                <!-- service Section -->
                 {% include 'services.html' %}
-                <!-- End service Section -->
 
-
-                <!-- Team/ process Section -->
-                {% include 'team.html' %}
-                <!-- End Team/ process Section -->
+                {#   include 'team.html' #}
 
                 <!-- pricing Section -->
-                {% include 'pricing.html' %}
+                {#  include 'pricing.html' #}
                 <!-- End pricing Section -->
 
-                <!-- Skills Section -->
-                {% include 'skill.html' %}
-                <!-- End Skills Section -->
+                {%   include 'skill.html' %}
 
-                <!-- Works Section -->
                 {% include 'portfolio.html' %}
-                <!-- End Works Section -->
-
-                <!-- Contact Section -->
                 {% include 'contact.html' %}
-                <!-- End Contact Section -->
+
             </div>
             <!-- End hs-content-wrapper -->
         </div>
@@ -102,7 +81,8 @@
     <script type="text/javascript" src="{{url_for('static',filename="js/jquery.min.js") }}"></script>
     <script type="text/javascript" src="{{url_for('static',filename="js/bootstrap.min.js") }}"></script>
     <script type="text/javascript" src="{{url_for('static',filename="js/default.js") }}"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+    {#<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>#}
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcGeQrIyfTDwxOusc9RWbpt7LYFZgdedE&libraries=places&language=fr-FR"></script>
     <script type="text/javascript" src="{{url_for('static',filename="js/watch.js") }}"></script>
     <script type="text/javascript" src="{{url_for('static',filename="js/layout.js") }}"></script>
     <script type="text/javascript" src="{{url_for('static',filename="js/main.js") }}"></script>

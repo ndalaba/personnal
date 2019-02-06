@@ -12,6 +12,7 @@ def educations():
     educations=Education.query.all()
     return render_template('admin/educations/education.html',form=form,educations=educations,url=url_for('admin.add_education'))
 
+
 @admin.route('/educations/add',methods=['POST'])
 @login_required
 def add_education():
