@@ -8,6 +8,13 @@ from app.entity.Entities import Activity
 from app.repository.Repository import repository
 from app.utils.upload import uploadImage
 from . import admin
+from app.entity.Entities import Email
+
+
+@admin.context_processor
+def inject_mail():
+    emails= Email.query.filter_by(user_id=current_user.id,read=False).order_by(Email.created_at).all()
+    return dict(emails=emails,email_count=len(emails))
 
 
 @admin.route('/home')

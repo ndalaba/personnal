@@ -25,6 +25,24 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
+            <li class="treeview {% if request.path=='/admin/messages' %} active {% endif %}">
+                <a href="{{url_for('admin.messages')}}">
+                    <i class="fa fa-envelope"></i> <span>Email</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li class="{% if request.path=='/admin/messages' %} active {% endif %}">
+                        <a href="{{url_for('admin.messages')}}">Boite de reception
+                            <span class="pull-right-container">
+                                <span class="label label-primary pull-right">{{email_count}}</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="{% if request.path=='/admin/messages/nouveau' %} active {% endif %}"><a href="{{url_for('admin.compose')}}">Nouveau message</a></li>                   
+                </ul>
+            </li>
            
             <li class="treeview {% if request.path=='/admin/educations' %} active {% endif %}">
                 <a href="#">
@@ -34,7 +52,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url_for('admin.educations')}}"><i class="fa fa-circle-o"></i> Educations</a></li>
+                    <li class="{% if request.path=='/admin/educations' %} active {% endif %}"><a href="{{url_for('admin.educations')}}"><i class="fa fa-circle-o"></i> Educations</a></li>
                 </ul>
             </li>
             <li class="treeview {% if request.path=='/admin/hobbies' %} active {% endif %}">
@@ -45,7 +63,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url_for('admin.hobbies')}}"><i class="fa fa-circle-o"></i> Loisirs</a></li>
+                    <li class="{% if request.path=='/admin/hobbies' %} active {% endif %}"><a href="{{url_for('admin.hobbies')}}"><i class="fa fa-circle-o"></i> Loisirs</a></li>
                 </ul>
             </li>
             <li class="treeview {% if request.path=='/admin/jobs' %} active {% endif %}">
@@ -56,7 +74,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url_for('admin.jobs')}}"><i class="fa fa-circle-o"></i> Expériences</a></li>
+                    <li class="{% if request.path=='/admin/jobs' %} active {% endif %}"><a href="{{url_for('admin.jobs')}}"><i class="fa fa-circle-o"></i> Expériences</a></li>
                 </ul>
             </li>
             <li class="treeview {% if request.path=='/admin/services' %} active {% endif %}">
@@ -67,7 +85,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url_for('admin.services')}}"><i class="fa fa-circle-o"></i> Services</a></li>
+                    <li class="{% if request.path=='/admin/services' %} active {% endif %}"><a href="{{url_for('admin.services')}}"><i class="fa fa-circle-o"></i> Services</a></li>
                 </ul>
             </li>
             <li class="treeview {% if request.path=='/admin/skills' %} active {% endif %}">
@@ -78,7 +96,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url_for('admin.skills')}}"><i class="fa fa-circle-o"></i> Compétences</a></li>
+                    <li class="{% if request.path=='/admin/skills' %} active {% endif %}"><a href="{{url_for('admin.skills')}}"><i class="fa fa-circle-o"></i> Compétences</a></li>
                 </ul>
             </li>
             <li class="treeview {% if request.path=='/admin/works' %} active {% endif %}">
@@ -89,7 +107,7 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{url_for('admin.works')}}"><i class="fa fa-circle-o"></i> Réalisations</a></li>
+                    <li class="{% if request.path=='/admin/works' %} active {% endif %}"><a href="{{url_for('admin.works')}}"><i class="fa fa-circle-o"></i> Réalisations</a></li>
                 </ul>
             </li>
         </ul>

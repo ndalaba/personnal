@@ -22,25 +22,27 @@
               <li class="dropdown messages-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-envelope-o"></i>
-                  <span class="label label-success">4</span>
+                  <span class="label label-success">{{email_count}}</span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li class="header">Vous avez 4 messages</li>
+                  <li class="header">Vous avez {{email_count}} messages</li>
                   <li>
                     <!-- inner menu: contains the actual data -->
                     <ul class="menu">
+                      {% for email in emails %}
                       <li><!-- start message -->
                         <a href="#">
                           <div class="pull-left">
                             <img src="{{url_for('static',filename=current_user.photo)}}" class="img-circle" alt="{{current_user.name}}">
                           </div>
                           <h4>
-                            Support Team
-                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                            {{email.name}}
+                            <small><i class="fa fa-clock-o"></i> {{email.created_at | datetimeformat('%d/%m %H:%M')}}</small>
                           </h4>
-                          <p>Why not buy a new awesome theme?</p>
+                          <p>{{email.subject}}</p>
                         </a>
                       </li>
+                      {% endfor %}
                       <!-- end message -->
                     </ul>
                   </li>

@@ -9,3 +9,4 @@ from . import services
 from . import hobbies
 from . import skills
 from . import works
+from . import messages
