@@ -17,7 +17,7 @@ def index():
     user = User.query.filter_by(uid='a6c5a240').first()
     color = url_for('static', filename="css/colors/" + random.choice(colors))
     form = EmailForm()
-    return render_template('base.html', user=user, color=color, form=form)
+    return render_template('front/base.html', user=user, color=color, form=form)
 
 
 @front.route('/contact', methods=['POST'])
@@ -36,9 +36,11 @@ def contact():
             email.message = form.message.data
             email.name = form.name.data
             repository.save(email)
-            '''msg = Message('Hello', sender='yourId@gmail.com', recipients=['id1@gmail.com'])
-            msg.body = "Hello Flask message sent from Flask-Mail"
-            mail.send(msg)'''
+            
+            msg = Message(email.subject, sender=(email.name,email.email_from), recipients=[user.email])
+            msg.body = email.message
+            mail.send(msg)
+
             return jsonify(type="success", text="Votre message a été envoyé.")
         return jsonify(type="error", text="Erreur formulaire.")
     return redirect(url_for('front.index'))

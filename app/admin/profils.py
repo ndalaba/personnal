@@ -14,7 +14,8 @@ from . import admin
 @admin.route('/')
 @login_required
 def home():
-    return render_template('admin/home.html',page='dashboard')
+    return redirect(url_for('admin.profil'))
+    #return render_template('admin/home.html',page='dashboard')
 
 
 @admin.route('activities/<uid>',methods=['POST','GET'])
