@@ -17,7 +17,7 @@ class User(Entity, UserMixin, db.Model):
     phone = db.Column(db.String(20), unique=True)
     role = db.Column(db.String(60))
     password_hash = db.Column(db.String(130))
-    photo =  db.Column(db.String(130), unique=True)
+    photo = db.Column(db.String(130), unique=True)
     bio = db.Column(db.Text)
     facebook = db.Column(db.String(150))
     github = db.Column(db.String(150))
@@ -31,6 +31,7 @@ class User(Entity, UserMixin, db.Model):
     works = db.relationship('Work', back_populates="user")
     hobbies = db.relationship('Hobby', back_populates="user")
     activities = db.relationship('Activity', back_populates="user")
+    emails = db.relationship('Email', back_populates="user")
 
     @property
     def password(self):

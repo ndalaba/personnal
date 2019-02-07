@@ -10,7 +10,7 @@ from .forms import Hobby as HobbyForm
 @login_required
 def hobbies():
     form = HobbyForm()
-    hobbies = Hobby.query.all()
+    hobbies = current_user.hobbies
     return render_template('admin/hobbies/hobby.html', form=form, hobbies=hobbies, url=url_for('admin.add_hobby'))
 
 

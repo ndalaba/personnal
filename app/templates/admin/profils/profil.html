@@ -100,7 +100,7 @@
                         <div class="active tab-pane" id="activity">
 
                             <div class="post clearfix">
-                                {% for activity in activities %}
+                                {% for activity in current_user.activities %}
                                     <div class="user-block">                                
                                         <span class="username">
                                             <a>{{activity.description}}</a>
@@ -110,8 +110,6 @@
                                     </div>
                                     <hr>
                                 {% endfor %}
-
-
                                 <form class="form-horizontal" action="{{url_for('admin.activities',uid='NULL')}}" method="POST">
                                     <div class="form-group margin-bottom-none">
                                         <div class="col-sm-10">

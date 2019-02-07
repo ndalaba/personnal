@@ -65,11 +65,14 @@ class Skill(Form):
     level = StringField('Niveau', [validators.Required('Veillez renseigner le champ niveau')])
     experience = StringField("Année d'expérience", [validators.Required("Veillez renseigner le champ année d'expérience")])
     description = TextAreaField('Description')
+    percent = StringField('Pourcentage')
+    techno = StringField('Technologie')
     published = BooleanField('Publié')
 
 
 class Work(Form):
     title = StringField('Titre', [validators.Required('Veillez renseigner le champ titre')])
+    category = StringField('Catégorie', validators=[DataRequired('Veillez renseigner le champ catégorie')])
     techno = StringField('Technologie', [validators.Required('Veillez renseigner le champ technologie')])
     url = StringField('Lien')
     image = FileField('Image', validators=[FileAllowed(['jpg', 'jpeg', 'png'])])

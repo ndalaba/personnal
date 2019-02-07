@@ -10,7 +10,7 @@ from .forms import Job as JobForm
 @login_required
 def jobs():
     form = JobForm()
-    jobs = Job.query.all()
+    jobs = current_user.jobs
     return render_template('admin/jobs/job.html', form=form, jobs=jobs, url=url_for('admin.add_job'))
 
 
@@ -39,7 +39,7 @@ def add_job():
 @admin.route('/jobs/edit/<uid>', methods=['GET', 'POST'])
 @login_required
 def edit_job(uid):
-    jobs = Job.query.all()
+    jobs = current_user.jobs
     job = Job.query.filter_by(uid=uid).first()
     form = JobForm(obj=job)
 
@@ -58,6 +58,7 @@ def edit_job(uid):
         else:
             flash('Formulaire incorrect', 'error')
     return render_template('admin/jobs/job.html', form=form, jobs=jobs, url=url_for('admin.edit_job', uid=uid), job=job)
+
 
 @admin.route('/jobs/delete/<uid>')
 @login_required

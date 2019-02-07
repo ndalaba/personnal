@@ -13,7 +13,7 @@
                         <p>{{ service.description }}</p>
                         <div class="slide">
                             <h4>Services</h4>
-                            {{ service.detail }}
+                            {{ service.detail | safe}}
                         </div>
                     </div>
                 {% endif %}

@@ -1,17 +1,21 @@
-from flask import render_template,flash,redirect,url_for,request
+import random
+
+from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user
-from . import admin
+
 from app.admin.forms import UserForm, PasswordForm
+from app.entity.Entities import Activity
 from app.repository.Repository import repository
 from app.utils.upload import uploadImage
-from app.entity.Entities import Activity
-import  random
+from . import admin
+
 
 @admin.route('/home')
 @admin.route('/')
 @login_required
 def home():
     return render_template('admin/home.html',page='dashboard')
+
 
 @admin.route('activities/<uid>',methods=['POST','GET'])
 @login_required
@@ -28,6 +32,7 @@ def activities(uid=None):
        
     return redirect(url_for('admin.profil'))
 
+
 @admin.route('/profils')
 def profil():
     form= UserForm(obj=current_user)
@@ -35,6 +40,7 @@ def profil():
     activities=Activity.query.order_by(Activity.created_at.desc())
     colors = ['success', 'info', 'danger', 'warning', 'primary']
     return render_template('admin/profils/profil.html',form=form,activities=activities,passwordForm=passwordForm,random=random,colors=colors)
+
 
 @admin.route('/edit_profil', methods=['POST'])
 @login_required
@@ -66,6 +72,7 @@ def edit_profil():
             flash('Les champs du formulaire ne sont pas bien remplis','error')
     else:
         return redirect(url_for('admin.profil'))
+
 
 @admin.route('/edit_password', methods=['POST'])
 @login_required

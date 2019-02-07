@@ -123,36 +123,40 @@ jQuery(document).ready(function($) {
     /* ---------------------------------------------------------------------- */
     $("#submit_btn").on('click', function() {
         //get input field values
+        var user = $('input[name=user]').val();
         var user_name = $('input[name=name]').val();
         var user_email = $('input[name=email]').val();
+        var user_subject = $('input[name=subject]').val();
         var user_message = $('textarea[name=message]').val();
 
         var proceed = true;
-        if (user_name == "") {
+        if (user_name === "") {
             $('input[name=name]').css('border-color', 'red');
             proceed = false;
         }
-        if (user_email == "") {
+        if (user_email === "") {
             $('input[name=email]').css('border-color', 'red');
             proceed = false;
         }
-        if (user_message == "") {
+        if (user_message === "") {
             $('textarea[name=message]').css('border-color', 'red');
             proceed = false;
         }
         if (proceed) {
             //data to be sent to server
             var post_data = {
-                'userName': user_name,
-                'userEmail': user_email,
-                'userMessage': user_message
+                'user': user,
+                'name': user_name,
+                'email': user_email,
+                'subject': user_subject,
+                'message': user_message
             };
             var output;
             //Ajax post data to server
-            $.post('php/contact.php', post_data, function(response) {
+            $.post(contact_url, post_data, function(response) {
 
                 //load json data from server and output message     
-                if (response.type == 'error') {
+                if (response.type === 'error') {
                     output = '<div class="error">' + response.text + '</div>';
                 } else {
                     output = '<div class="success">' + response.text + '</div>';
@@ -357,7 +361,7 @@ jQuery(document).ready(function($) {
     /* ---------------------------------------------------------------------- */
     /* -------------------------- TESTIMONIALS  ----------------------------- */
     /* ---------------------------------------------------------------------- */
-    var testimonials = {};
+    /*var testimonials = {};
 
     testimonials.slider = (function() {
         var currentItemIndex = 0,
@@ -416,7 +420,7 @@ jQuery(document).ready(function($) {
 
     })();
 
-    testimonials.slider.init('.prev-testimonial', '.next-testimonial');
+    testimonials.slider.init('.prev-testimonial', '.next-testimonial');*/
     /* ---------------------------------------------------------------------- */
     /* ----------------------------- PROCESS  ------------------------------- */
     /* ---------------------------------------------------------------------- */

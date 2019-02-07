@@ -10,7 +10,7 @@ from .forms import Service as ServiceForm
 @login_required
 def services():
     form = ServiceForm()
-    services = Service.query.all()
+    services = current_user.services
     return render_template('admin/services/service.html', form=form, services=services, url=url_for('admin.add_service'))
 
 
@@ -37,7 +37,7 @@ def add_service():
 @admin.route('/services/edit/<uid>', methods=['GET', 'POST'])
 @login_required
 def edit_service(uid):
-    services = Service.query.all()
+    services = current_user.services
     service = Service.query.filter_by(uid=uid).first()
     form = ServiceForm(obj=service)
 
@@ -54,6 +54,7 @@ def edit_service(uid):
         else:
             flash('Formulaire incorrect', 'error')
     return render_template('admin/services/service.html', form=form, services=services, url=url_for('admin.edit_service', uid=uid), service=service)
+
 
 @admin.route('/services/delete/<uid>')
 @login_required

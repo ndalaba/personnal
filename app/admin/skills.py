@@ -8,11 +8,12 @@ import random
 
 colors = ['success', 'info', 'danger', 'warning', 'primary']
 
+
 @admin.route('/skills')
 @login_required
 def skills():
     form = SkillForm()
-    skills = Skill.query.all()
+    skills = current_user.skills
     return render_template('admin/skills/skill.html', form=form, skills=skills, url=url_for('admin.add_skill'),colors=colors,random=random)
 
 
@@ -25,6 +26,8 @@ def add_skill():
             skill = Skill(skill=form.skill.data, user_id=current_user.id)
             skill.level = form.level.data
             skill.experience = form.experience.data
+            skill.techno = form.techno.data
+            skill.percent = form.percent.data
             skill.description = form.description.data
             skill.published = form.published.data
             repository.save(skill)
@@ -39,7 +42,7 @@ def add_skill():
 @admin.route('/skills/edit/<uid>', methods=['GET', 'POST'])
 @login_required
 def edit_skill(uid):
-    skills = Skill.query.all()
+    skills = current_user.skills
     skill = Skill.query.filter_by(uid=uid).first()
     form = SkillForm(obj=skill)
 
@@ -48,6 +51,8 @@ def edit_skill(uid):
             skill.skill = form.skill.data
             skill.level = form.level.data
             skill.experience = form.experience.data
+            skill.techno = form.techno.data
+            skill.percent = form.percent.data
             skill.description = form.description.data
             skill.published = form.published.data
             repository.save(skill)
@@ -56,6 +61,7 @@ def edit_skill(uid):
         else:
             flash('Formulaire incorrect', 'error')
     return render_template('admin/skills/skill.html', form=form, skills=skills, url=url_for('admin.edit_skill', uid=uid), skill=skill,colors=colors,random=random)
+
 
 @admin.route('/skills/delete/<uid>')
 @login_required

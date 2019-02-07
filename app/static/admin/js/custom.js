@@ -1,4 +1,5 @@
 $(function () {
+        $('.summernote').summernote();
         window.alert = function (message, type = 'red') {
             $.alert({title: 'Alert!', content: message, type: type});
         };

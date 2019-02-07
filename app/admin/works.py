@@ -11,7 +11,7 @@ from app.utils.upload import uploadImage
 @login_required
 def works():
     form = WorkForm()
-    works = Work.query.all()
+    works = current_user.works #Work.query.all()
     return render_template('admin/works/work.html', form=form, works=works, url=url_for('admin.add_work'))
 
 
@@ -26,6 +26,7 @@ def add_work():
                 image = uploadImage(form.image.data, 'upload/works/')
                 work.image = image
             work.techno = form.techno.data
+            work.category = form.category.data
             work.url = form.url.data
             work.description = form.description.data
             work.published = form.published.data
@@ -41,7 +42,7 @@ def add_work():
 @admin.route('/works/edit/<uid>', methods=['GET', 'POST'])
 @login_required
 def edit_work(uid):
-    works = Work.query.all()
+    works = current_user.works  #Work.query.all()
     work = Work.query.filter_by(uid=uid).first()
     form = WorkForm(obj=work)
 
@@ -52,6 +53,7 @@ def edit_work(uid):
                 work.image = image
             work.title = form.title.data
             work.techno = form.techno.data
+            work.category = form.category.data
             work.url = form.url.data
             work.description = form.description.data
             work.published = form.published.data

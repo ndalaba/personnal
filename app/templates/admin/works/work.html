@@ -29,6 +29,7 @@
                                 <tbody>
                                 <tr>
                                     <th>Titre</th>
+                                    <th>Catégorie</th>
                                     <th>Techno</th>
                                     <th>Image</th>
                                     <th>Etat</th>
@@ -40,6 +41,7 @@
                                         <a href="{{ work.url }}" target="_blank" title="{{ work.title }}">{{ work.title }}</a>
 
                                         </td>
+                                        <td>{{ work.category }}</td>
                                         <td>{{ work.techno }}</td>
                                         <td><a href="{{url_for('static',filename=work.image)}}" target="_blank"><img width="50px" src="{{url_for('static',filename=work.image)}}" alt="{{ work.title }}"></a></td>
                                         {% if work.published %}

@@ -5,11 +5,12 @@ from app.repository.Repository import repository
 from app.entity.Entities import Education
 from .forms import Education as EducationForm
 
+
 @admin.route('/educations')
 @login_required
 def educations():
     form = EducationForm()
-    educations=Education.query.all()
+    educations = current_user.educations
     return render_template('admin/educations/education.html',form=form,educations=educations,url=url_for('admin.add_education'))
 
 
@@ -38,7 +39,7 @@ def add_education():
 @admin.route('/educations/edit/<uid>',methods=['GET','POST'])
 @login_required
 def edit_education(uid):
-    educations = Education.query.all()
+    educations = current_user.educations
     education= Education.query.filter_by(uid=uid).first()
     form = EducationForm(obj=education)
 
@@ -57,6 +58,7 @@ def edit_education(uid):
         else:
             flash('Formulaire incorrect','error')
     return render_template('admin/educations/education.html', form=form, educations=educations,url=url_for('admin.edit_education',uid=uid),education=education)
+
 
 @admin.route('/educations/delete/<uid>')
 @login_required
