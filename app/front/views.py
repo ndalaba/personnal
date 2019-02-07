@@ -1,17 +1,3 @@
-<<<<<<< HEAD
-from flask import render_template
-from . import front
-from app.entity.User import User
-from app import db
-
-@front.route('/')
-def index():
-   # user= User(name='Mamadou Diallo',email='dmn@dev-hoster.com')
-   # user.password="thesniper"
-   # db.session.add(user)
-   # db.session.commit()
-    return render_template('base.html')
-=======
 import random
 
 from flask import render_template, url_for, jsonify, redirect, request
@@ -58,4 +44,3 @@ def contact():
             return jsonify(type="success", text="Votre message a été envoyé.")
         return jsonify(type="error", text="Erreur formulaire.")
     return redirect(url_for('front.index'))
->>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99

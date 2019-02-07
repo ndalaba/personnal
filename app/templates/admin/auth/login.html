@@ -3,45 +3,14 @@
 
 <head>
     <meta charset="utf-8" />
-<<<<<<< HEAD
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static',filename="admin/img/apple-icon.png")}}" />
-    <link rel="icon" type="image/png" href="{{ url_for('static',filename="admin/img/favicon.ico")}}" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>N'Dalaba Diallo | Connection au compte</title>
-=======
     <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static',filename="admin/assets/images/apple-icon.png")}}" />
     <link rel="icon" type="image/png" href="{{ url_for('static',filename="admin/assets/images/favicon.ico")}}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>N'Dalaba Diallo | Connection au l'administration</title>
->>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
     <!-- Stylesheets -->
-<<<<<<< HEAD
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/bootstrap/bootstrap.min.css")}}">
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/bootstrap/bootstrap-extend.min.css")}}">
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/css/site.min.css")}}">
-
-    <!-- Plugins -->
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/animsition/animsition.min.css")}}">
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/asscrollable/asScrollable.min.css")}}">
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/switchery/switchery.min.css")}}">
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/intro-js/introjs.min.css")}}">
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/slidepanel/slidePanel.min.css")}}">
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/fonts/flag-icon.min.css")}}">
-
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/css/login.min.css")}}">
-
-    <!-- Fonts -->
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/fonts/web-icons.min.css")}}">
-    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/fonts/brand-icons.min.css")}}">
-    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
-
-
-    <!-- Scripts -->
-    <script src="{{url_for('static',filename="admin/vendor/breakpoints/breakpoints.min.js")}}"></script>
-=======
     <link rel="stylesheet" href="../../static/admin/global/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../static/admin/global/css/bootstrap-extend.min.css">
     <link rel="stylesheet" href="../../static/admin/assets/css/site.min.css">
@@ -61,7 +30,6 @@
 
     <!-- Scripts -->
     <script src="../../static/admin/global/vendor/breakpoints/breakpoints.js"></script>
->>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
     <script>
         Breakpoints();
     </script>
@@ -72,11 +40,7 @@
     <div class="page vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">>
         <div class="page-content vertical-align-middle animation-slide-top animation-duration-1">
             <div class="brand">
-<<<<<<< HEAD
-                <img class="brand-img" src="{{url_for('static',filename="admin/img/logo.png")}}" alt="Logo N'Dalaba Diallo">
-=======
                 <img class="brand-img" src="{{url_for('static',filename="admin/assets/images/logo.png")}}" alt="Logo N'Dalaba Diallo">
->>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
                 <h2 class="brand-text">DMN</h2>
             </div>
             <p>Connection à l'administration</p>
@@ -93,11 +57,7 @@
                 <div class="form-group clearfix">
                     <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
                         {{form.remember_me(id='inputCheckbox')}}
-<<<<<<< HEAD
-                        <label for="inputCheckbox">Reste connecté</label>
-=======
                         <label for="inputCheckbox">Resté connecté</label>
->>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
                     </div>
                     {#<a class="float-right" href="#">Forgot password?</a>#}
                 </div>
@@ -107,11 +67,7 @@
             {#<p>Still no account? Please go to <a href="#">Register</a></p>#}
 
             <footer class="page-copyright page-copyright-inverse">
-<<<<<<< HEAD
-                <p>WEBSITE BY N'Dalaba Diallo</p>
-=======
                 <p>Site web de N'Dalaba Diallo</p>
->>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
                 <p>© {{now.year}}. TOUT DROIT RESERVE.</p>
                 <div class="social">
                     <a class="btn btn-icon btn-pure" href="javascript:void(0)">
@@ -128,41 +84,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
-    <!-- Core  -->
-    <script src="{{ url_for('static',filename='admin/vendor/babel-external-helpers/babel-external-helpers.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/popper-js/popper.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/bootstrap/bootstrap.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/animsition/animsition.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/mousewheel/jquery.mousewheel.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/asscrollbar/jquery-asScrollbar.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/asscrollable/jquery-asScrollable.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/ashoverscroll/jquery-asHoverScroll.min.js')}}"></script>
-    <!-- Plugins -->
-    <script src="{{ url_for('static',filename='admin/vendor/switchery/switchery.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/intro-js/intro.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/screenfull/screenfull.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/slidepanel/jquery-slidePanel.min.js')}}"></script>
-
-    <!-- Scripts -->
-    <script src="{{ url_for('static',filename='admin/js/Component.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/js/Plugin.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/js/Base.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/js/Config.min.js')}}"></script>
-
-    <script src="{{ url_for('static',filename='admin/js/Menubar.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/js/Sidebar.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/js/PageAside.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/js/menu.min.js')}}"></script>
-
-    <script src="{{ url_for('static',filename='admin/js/Site.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/asscrollable/asscrollable.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/slidepanel/slidepanel.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='admin/vendor/switchery/switchery.min.js')}}"></script>
-
-
-=======
 
     <!-- Core  -->
     <script src="../../static/admin/global/vendor/babel-external-helpers/babel-external-helpers.js"></script>
@@ -194,26 +115,18 @@
         Config.set('assets', '../assets');
     </script>
     <script src="../static/admin/assets/js/Site.js"></script>
->>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
     <script>
         (function (document, window, $) {
             'use strict';
 
             var Site = window.Site;
-<<<<<<< HEAD
-=======
 
->>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
             $(document).ready(function () {
                 Site.run();
             });
         })(document, window, jQuery);
     </script>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
 </body>
 
 </html>
