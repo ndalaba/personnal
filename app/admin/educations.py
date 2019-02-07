@@ -1,17 +1,18 @@
 from flask_login import login_required,current_user
 from flask import render_template, redirect, request, flash,url_for
 from . import admin
-from datetime import datetime
 from app.repository.Repository import repository
 from app.entity.Entities import Education
 from .forms import Education as EducationForm
+
 
 @admin.route('/educations')
 @login_required
 def educations():
     form = EducationForm()
-    educations=Education.query.all()
+    educations = current_user.educations
     return render_template('admin/educations/education.html',form=form,educations=educations,url=url_for('admin.add_education'))
+
 
 @admin.route('/educations/add',methods=['POST'])
 @login_required
@@ -33,13 +34,12 @@ def add_education():
             flash('Formulaire incorrect','error')
     else:
         return redirect(url_for('admin.add_education'))
-    #return render_template('admin/educations/form.html',form=form,url=url_for('admin.add_education'))
 
 
 @admin.route('/educations/edit/<uid>',methods=['GET','POST'])
 @login_required
 def edit_education(uid):
-    educations = Education.query.all()
+    educations = current_user.educations
     education= Education.query.filter_by(uid=uid).first()
     form = EducationForm(obj=education)
 
@@ -58,7 +58,6 @@ def edit_education(uid):
         else:
             flash('Formulaire incorrect','error')
     return render_template('admin/educations/education.html', form=form, educations=educations,url=url_for('admin.edit_education',uid=uid),education=education)
-    #return render_template('admin/educations/form.html',form=form,education=education,url=url_for('admin.edit_education',uid=uid))
 
 
 @admin.route('/educations/delete/<uid>')

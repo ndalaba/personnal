@@ -206,7 +206,7 @@ jQuery(document).ready(function($) {
                                 _saveState(section - 1);
                                 
                                 if ((section - 1) == 1) {
-                                    console.log("kayna");
+                                    console.log("DMN");
                                     $(".previous-page").css("color", "#D2D6DB");
                                 }
                             }
