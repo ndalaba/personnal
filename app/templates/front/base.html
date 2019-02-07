@@ -42,21 +42,21 @@
     <!-- container -->
     <div id="hs-container" class="hs-container">
 
-        {% include 'inc/sidebar.html' %}
+        {% include 'front/inc/sidebar.html' %}
 
         <a href="#hs-menu" class="hs-totop-link"><i class="fa fa-chevron-up"></i></a>
 
         <div class="hs-content-scroller">
             <!-- Header -->
-            {% include 'inc/header.html' %}
+            {% include 'front/inc/header.html' %}
 
             <div class="hs-content-wrapper">
 
-                {% include 'about.html' %}
+                {% include 'front/about.html' %}
 
-                {% include 'resume.html' %}
+                {% include 'front/resume.html' %}
 
-                {% include 'services.html' %}
+                {% include 'front/services.html' %}
 
                 {#   include 'team.html' #}
 
@@ -64,10 +64,10 @@
                 {#  include 'pricing.html' #}
                 <!-- End pricing Section -->
 
-                {%   include 'skill.html' %}
+                {%   include 'front/skill.html' %}
 
-                {% include 'portfolio.html' %}
-                {% include 'contact.html' %}
+                {% include 'front/portfolio.html' %}
+                {% include 'front/contact.html' %}
 
             </div>
             <!-- End hs-content-wrapper -->
@@ -81,7 +81,6 @@
     <script type="text/javascript" src="{{url_for('static',filename="js/jquery.min.js") }}"></script>
     <script type="text/javascript" src="{{url_for('static',filename="js/bootstrap.min.js") }}"></script>
     <script type="text/javascript" src="{{url_for('static',filename="js/default.js") }}"></script>
-    {#<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>#}
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAcGeQrIyfTDwxOusc9RWbpt7LYFZgdedE&libraries=places&language=fr-FR"></script>
     <script type="text/javascript" src="{{url_for('static',filename="js/watch.js") }}"></script>
     <script type="text/javascript" src="{{url_for('static',filename="js/layout.js") }}"></script>
