@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% with errors = get_flashed_messages(category_filter=["error"]) %}
     {% if errors %}
         {%- for msg in errors %}
@@ -7,6 +8,15 @@
                 </button>
                 {{ msg }}
             </div>
+=======
+<section class="content-header">
+{% with errors = get_flashed_messages(category_filter=["error"]) %}
+    {% if errors %}
+        {%- for msg in errors %}
+        <div class="callout callout-danger">
+                <h4> {{ msg }}</h4>
+              </div>
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
         {% endfor %}
     {% endif %}
 {% endwith %}
@@ -14,6 +24,7 @@
 {% with success = get_flashed_messages(category_filter=["success"]) %}
     {% if success %}
         {%- for msg in success %}
+<<<<<<< HEAD
             <div class="alert alert-primary alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">×</span>
@@ -23,3 +34,22 @@
         {% endfor %}
     {% endif %}
 {% endwith %}
+=======
+        <div class="callout callout-success">
+                <h4> {{ msg }}</h4>
+              </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+{% with success = get_flashed_messages(category_filter=["info"]) %}
+    {% if success %}
+        {%- for msg in success %}
+        <div class="callout callout-info">
+                <h4> {{ msg }}</h4>
+              </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+</section>
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99

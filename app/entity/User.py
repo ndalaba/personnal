@@ -17,11 +17,19 @@ class User(Entity, UserMixin, db.Model):
     phone = db.Column(db.String(20), unique=True)
     role = db.Column(db.String(60))
     password_hash = db.Column(db.String(130))
+<<<<<<< HEAD
     photo =  db.Column(db.String(130), unique=True)
     bio = db.Column(db.Text)
     facebook = db.Column(db.String(150))
     github = db.Column(db.String(150))
     youtube = db.Column(db.String(150))
+=======
+    photo = db.Column(db.String(130), unique=True)
+    bio = db.Column(db.Text)
+    facebook = db.Column(db.String(150))
+    github = db.Column(db.String(150))
+    linkedin = db.Column(db.String(150))
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
     twitter = db.Column(db.String(150))
 
     educations = db.relationship('Education', back_populates="user")
@@ -29,6 +37,12 @@ class User(Entity, UserMixin, db.Model):
     services = db.relationship('Service', back_populates="user")
     skills = db.relationship('Skill', back_populates="user")
     works = db.relationship('Work', back_populates="user")
+<<<<<<< HEAD
+=======
+    hobbies = db.relationship('Hobby', back_populates="user")
+    activities = db.relationship('Activity', back_populates="user")
+    emails = db.relationship('Email', back_populates="user")
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
 
     @property
     def password(self):

@@ -123,6 +123,7 @@ jQuery(document).ready(function($) {
     /* ---------------------------------------------------------------------- */
     $("#submit_btn").on('click', function() {
         //get input field values
+<<<<<<< HEAD
         var user_name = $('input[name=name]').val();
         var user_email = $('input[name=email]').val();
         var user_message = $('textarea[name=message]').val();
@@ -137,12 +138,31 @@ jQuery(document).ready(function($) {
             proceed = false;
         }
         if (user_message == "") {
+=======
+        var user = $('input[name=user]').val();
+        var user_name = $('input[name=name]').val();
+        var user_email = $('input[name=email]').val();
+        var user_subject = $('input[name=subject]').val();
+        var user_message = $('textarea[name=message]').val();
+
+        var proceed = true;
+        if (user_name === "") {
+            $('input[name=name]').css('border-color', 'red');
+            proceed = false;
+        }
+        if (user_email === "") {
+            $('input[name=email]').css('border-color', 'red');
+            proceed = false;
+        }
+        if (user_message === "") {
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
             $('textarea[name=message]').css('border-color', 'red');
             proceed = false;
         }
         if (proceed) {
             //data to be sent to server
             var post_data = {
+<<<<<<< HEAD
                 'userName': user_name,
                 'userEmail': user_email,
                 'userMessage': user_message
@@ -153,6 +173,20 @@ jQuery(document).ready(function($) {
 
                 //load json data from server and output message     
                 if (response.type == 'error') {
+=======
+                'user': user,
+                'name': user_name,
+                'email': user_email,
+                'subject': user_subject,
+                'message': user_message
+            };
+            var output;
+            //Ajax post data to server
+            $.post(contact_url, post_data, function(response) {
+
+                //load json data from server and output message     
+                if (response.type === 'error') {
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
                     output = '<div class="error">' + response.text + '</div>';
                 } else {
                     output = '<div class="success">' + response.text + '</div>';
@@ -210,13 +244,22 @@ jQuery(document).ready(function($) {
     /* ---------------------------------------------------------------------- */
     $(".map-location").on('click', function() {
         //set your google maps parameters
+<<<<<<< HEAD
         var latitude = 37.775,
             longitude = -122.4183333,
+=======
+        var latitude = 48.9448607,
+            longitude = 2.3786584,
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
             map_zoom = 14;
 
         //google map custom marker icon - .png fallback for IE11
         var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+<<<<<<< HEAD
         var marker_url = (is_internetExplorer11) ? 'images/gmaps/cd-icon-location.png' : 'images/gmaps/cd-icon-location.svg';
+=======
+        var marker_url = (is_internetExplorer11) ? 'static/images/gmaps/cd-icon-location.png' : 'static/images/gmaps/cd-icon-location.svg';
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
 
         //define the basic color of your map, plus a value for saturation and brightness
         var main_color = '#2d313f',
@@ -224,7 +267,12 @@ jQuery(document).ready(function($) {
             brightness_value = 5;
 
         //we define here the style of the map
+<<<<<<< HEAD
         var style = [{
+=======
+        var style =
+            [{
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
             "featureType": "landscape",
             "elementType": "labels",
             "stylers": [{
@@ -290,8 +338,13 @@ jQuery(document).ready(function($) {
                 streetViewControl: false,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 scrollwheel: false,
+<<<<<<< HEAD
                 styles: style
             }
+=======
+              //  styles: style
+            };
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
             //inizialize the map
         var map = new google.maps.Map(document.getElementById('google-container'), map_options);
         //add a custom marker to the map                
@@ -356,7 +409,11 @@ jQuery(document).ready(function($) {
     /* ---------------------------------------------------------------------- */
     /* -------------------------- TESTIMONIALS  ----------------------------- */
     /* ---------------------------------------------------------------------- */
+<<<<<<< HEAD
     var testimonials = {};
+=======
+    /*var testimonials = {};
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
 
     testimonials.slider = (function() {
         var currentItemIndex = 0,
@@ -415,7 +472,11 @@ jQuery(document).ready(function($) {
 
     })();
 
+<<<<<<< HEAD
     testimonials.slider.init('.prev-testimonial', '.next-testimonial');
+=======
+    testimonials.slider.init('.prev-testimonial', '.next-testimonial');*/
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
     /* ---------------------------------------------------------------------- */
     /* ----------------------------- PROCESS  ------------------------------- */
     /* ---------------------------------------------------------------------- */

@@ -206,7 +206,11 @@ jQuery(document).ready(function($) {
                                 _saveState(section - 1);
                                 
                                 if ((section - 1) == 1) {
+<<<<<<< HEAD
                                     console.log("kayna");
+=======
+                                    console.log("DMN");
+>>>>>>> ee6c30bbb9ffcfc4922c4a1ed46307d23ffecb99
                                     $(".previous-page").css("color", "#D2D6DB");
                                 }
                             }
