@@ -1,0 +1,137 @@
+<!doctype html>
+<html class="no-js css-menubar" lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static',filename="admin/img/apple-icon.png")}}" />
+    <link rel="icon" type="image/png" href="{{ url_for('static',filename="admin/img/favicon.ico")}}" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>N'Dalaba Diallo | Connection au compte</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/bootstrap/bootstrap.min.css")}}">
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/bootstrap/bootstrap-extend.min.css")}}">
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/css/site.min.css")}}">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/animsition/animsition.min.css")}}">
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/asscrollable/asScrollable.min.css")}}">
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/switchery/switchery.min.css")}}">
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/intro-js/introjs.min.css")}}">
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/slidepanel/slidePanel.min.css")}}">
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/fonts/flag-icon.min.css")}}">
+
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/css/login.min.css")}}">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/fonts/web-icons.min.css")}}">
+    <link rel="stylesheet" href="{{url_for('static',filename="admin/vendor/fonts/brand-icons.min.css")}}">
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic">
+
+
+    <!-- Scripts -->
+    <script src="{{url_for('static',filename="admin/vendor/breakpoints/breakpoints.min.js")}}"></script>
+    <script>
+        Breakpoints();
+    </script>
+</head>
+
+<body class="animsition site-navbar-small page-login layout-full page-dark">
+
+    <div class="page vertical-align text-center" data-animsition-in="fade-in" data-animsition-out="fade-out">>
+        <div class="page-content vertical-align-middle animation-slide-top animation-duration-1">
+            <div class="brand">
+                <img class="brand-img" src="{{url_for('static',filename="admin/img/logo.png")}}" alt="Logo N'Dalaba Diallo">
+                <h2 class="brand-text">DMN</h2>
+            </div>
+            <p>Connection à l'administration</p>
+            <form method="post" action="{{url_for('auth.login')}}">
+                {% include "admin/inc/success_error.html" %}
+                <div class="form-group">
+                    <label class="sr-only" for="inputEmail">{{form.email.label}}</label>
+                    {{form.email(class="form-control",id='inputEmail',placeholder='adresse email',type="email",required="required")}}
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="inputPassword">{{form.password.label}}</label>
+                    {{form.password(class="form-control",id='inputPassword')}}
+                </div>
+                <div class="form-group clearfix">
+                    <div class="checkbox-custom checkbox-inline checkbox-primary float-left">
+                        {{form.remember_me(id='inputCheckbox')}}
+                        <label for="inputCheckbox">Reste connecté</label>
+                    </div>
+                    {#<a class="float-right" href="#">Forgot password?</a>#}
+                </div>
+                {{form.submit(class='btn btn-primary btn-block')}}
+
+            </form>
+            {#<p>Still no account? Please go to <a href="#">Register</a></p>#}
+
+            <footer class="page-copyright page-copyright-inverse">
+                <p>WEBSITE BY N'Dalaba Diallo</p>
+                <p>© {{now.year}}. TOUT DROIT RESERVE.</p>
+                <div class="social">
+                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
+                        <i class="icon bd-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
+                        <i class="icon bd-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-icon btn-pure" href="javascript:void(0)">
+                        <i class="icon bd-dribbble" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Core  -->
+    <script src="{{ url_for('static',filename='admin/vendor/babel-external-helpers/babel-external-helpers.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/popper-js/popper.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/bootstrap/bootstrap.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/animsition/animsition.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/mousewheel/jquery.mousewheel.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/asscrollbar/jquery-asScrollbar.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/asscrollable/jquery-asScrollable.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/ashoverscroll/jquery-asHoverScroll.min.js')}}"></script>
+    <!-- Plugins -->
+    <script src="{{ url_for('static',filename='admin/vendor/switchery/switchery.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/intro-js/intro.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/screenfull/screenfull.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/slidepanel/jquery-slidePanel.min.js')}}"></script>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static',filename='admin/js/Component.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/js/Plugin.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/js/Base.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/js/Config.min.js')}}"></script>
+
+    <script src="{{ url_for('static',filename='admin/js/Menubar.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/js/Sidebar.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/js/PageAside.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/js/menu.min.js')}}"></script>
+
+    <script src="{{ url_for('static',filename='admin/js/Site.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/asscrollable/asscrollable.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/slidepanel/slidepanel.min.js')}}"></script>
+    <script src="{{ url_for('static',filename='admin/vendor/switchery/switchery.min.js')}}"></script>
+
+
+    <script>
+        (function (document, window, $) {
+            'use strict';
+
+            var Site = window.Site;
+            $(document).ready(function () {
+                Site.run();
+            });
+        })(document, window, jQuery);
+    </script>
+
+
+</body>
+
+</html>
