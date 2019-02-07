@@ -1,0 +1,8 @@
+# APP configuration
+
+SECRET_KEY = 'pSxv<384DSEid9%$i01'
+
+DEBUG = True
+SQLALCHEMY_ECHO = True
+
+SQLALCHEMY_DATABASE_URI = "mysql://ndalctes_dmn:dU6D5qemHsVB2QsrZu@localhost/ndalctes_db_dmn"
