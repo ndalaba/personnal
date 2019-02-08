@@ -1,20 +1,12 @@
 import random
-
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user
-
 from app.admin.forms import UserForm, PasswordForm
 from app.entity.Entities import Activity
 from app.repository.Repository import repository
 from app.utils.upload import uploadImage
 from . import admin
-from app.entity.Entities import Email
-
-
-@admin.context_processor
-def inject_mail():
-    emails= Email.query.filter_by(user_id=current_user.id,read=False).order_by(Email.created_at).all()
-    return dict(emails=emails,email_count=len(emails))
+from sqlalchemy import text
 
 
 @admin.route('/home')
