@@ -15,10 +15,12 @@
             <ul class="nav nav-pills nav-stacked">
                 <li class="{% if request.path=='/admin/messages' %} active {% endif %}">
                     <a href="{{url_for('admin.messages')}}"><i class="fa fa-inbox"></i> Boite de reception
+                        {% if email_count %}
                             <span class="label label-primary pull-right">{{email_count}}</span>
+                        {% endif %}
                     </a>
                 </li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> Envoyé</a></li>
+                <li><a href="{{url_for('admin.send_messages')}}"><i class="fa fa-envelope-o"></i> Envoyé</a></li>
                 <li><a href="#"><i class="fa fa-file-text-o"></i> Brouillon</a></li>
                 <li><a href="#"><i class="fa fa-trash-o"></i> Supprimé</a></li>
             </ul>

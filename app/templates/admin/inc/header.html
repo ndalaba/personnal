@@ -22,7 +22,9 @@
               <li class="dropdown messages-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-envelope-o"></i>
+                  {% if email_count %}
                   <span class="label label-success">{{email_count}}</span>
+                  {% endif %}
                 </a>
                 <ul class="dropdown-menu">
                   <li class="header">Vous avez {{email_count}} messages</li>
@@ -31,7 +33,7 @@
                     <ul class="menu">
                       {% for email in emails %}
                       <li><!-- start message -->
-                        <a href="#">
+                        <a href="{{url_for('admin.read',uid=email.uid)}}">
                           <div class="pull-left">
                             <img src="{{url_for('static',filename=current_user.photo)}}" class="img-circle" alt="{{current_user.name}}">
                           </div>

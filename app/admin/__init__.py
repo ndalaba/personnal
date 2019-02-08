@@ -8,7 +8,7 @@ admin = Blueprint('admin', __name__)
 
 @admin.context_processor
 def inject_mail():
-    emails = Email.query.filter_by(user_id=current_user.id, read=False).order_by(
+    emails = Email.query.filter_by(user_id=current_user.id, read=False,folder='INBOX').order_by(
         text('created_at DESC')).all()
     return dict(emails=emails, email_count=len(emails))
 
