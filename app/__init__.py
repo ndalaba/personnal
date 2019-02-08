@@ -34,5 +34,6 @@ from .front import front as front_blueprint
 app.register_blueprint(front_blueprint)
 
 
-from app.utils.filter import datetimeformat
+from app.utils.filter import datetimeformat,startswith
 app.jinja_env.filters['datetimeformat'] = datetimeformat
+app.jinja_env.filters['startswith'] = startswith

@@ -1,13 +1,12 @@
 import random
-
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user
-
 from app.admin.forms import UserForm, PasswordForm
 from app.entity.Entities import Activity
 from app.repository.Repository import repository
 from app.utils.upload import uploadImage
 from . import admin
+from sqlalchemy import text
 
 
 @admin.route('/home')
