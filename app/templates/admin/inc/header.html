@@ -64,7 +64,7 @@
     
                     <p>
                             {{current_user.name}} - {{current_user.job}}
-                      <small>Member since Nov. 2012</small>
+                      <small>Membre depuis {{current_user.created_at | datetimeformat('%b %Y')}}</small>
                     </p>
                   </li>
                   <!-- Menu Body -->

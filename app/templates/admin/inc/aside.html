@@ -35,9 +35,11 @@
                 <ul class="treeview-menu">
                     <li class="{% if request.path=='/admin/messages' %} active {% endif %}">
                         <a href="{{url_for('admin.messages')}}">Boite de reception
+                        {% if email_count %}
                             <span class="pull-right-container">
                                 <span class="label label-primary pull-right">{{email_count}}</span>
                             </span>
+                        {% endif %}
                         </a>
                     </li>
                     <li class="{% if request.path=='/admin/messages/nouveau' %} active {% endif %}"><a href="{{url_for('admin.compose')}}">Nouveau message</a></li>                   
