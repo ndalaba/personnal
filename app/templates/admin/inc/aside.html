@@ -25,9 +25,9 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview {% if request.path=='/admin/messages' %} active {% endif %}">
+            <li class="treeview {% if request.path | startswith('/admin/messages') %} active {% endif %}">
                 <a href="{{url_for('admin.messages')}}">
-                    <i class="fa fa-envelope"></i> <span>Email</span>
+                    <i class="fa fa-envelope"></i> <span>Messages</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>

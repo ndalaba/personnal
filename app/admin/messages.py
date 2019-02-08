@@ -35,10 +35,10 @@ def read(uid):
 def repondre(uid):
     email = Email.query.filter_by(user_id=current_user.id, uid=uid).one()
     new_mail = Email(user_id=current_user.id)
-    new_mail.email_from(current_user.email)
+    new_mail.email_from = current_user.email
     new_mail.email_to=email.email_from
     new_mail.subject = "Re: %s" % email.subject
-    return render_template('admin/messages/compose.html', email=email)
+    return render_template('admin/messages/compose.html', email=new_mail)
 
 @admin.route('/message/supprimer/<uid>')
 @login_required
