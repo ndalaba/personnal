@@ -2,12 +2,12 @@ import random
 
 from flask import render_template, url_for, jsonify, redirect, request
 
-from app.entity.Entities import Email
+from app.entity.Entities import Message
 from app.entity.User import User
 from app.repository.Repository import repository
 from . import front
 from .form import EmailForm
-from flask_mail import Message
+from flask_mail import Message as Msg
 from app import mail
 
 
@@ -28,7 +28,7 @@ def contact():
             user = User.query.filter_by(uid=form.user.data).first()
             if user is None:
                 return jsonify(type="error", text="Erreur formulaire.")
-            email = Email(user_id=user.id)
+            email = Message(user_id=user.id)
             email.email_from = form.email.data
             email.folder = "INBOX"
             email.email_to = user.email
@@ -37,7 +37,7 @@ def contact():
             email.name = form.name.data
             repository.save(email)
             
-            msg = Message(email.subject, sender=(email.name,email.email_from), recipients=[user.email])
+            msg = Msg(email.subject, sender=(email.name,email.email_from), recipients=[user.email])
             msg.body = email.message
             mail.send(msg)
 

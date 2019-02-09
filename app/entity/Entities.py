@@ -140,7 +140,7 @@ class Education(Entity, db.Model):
         self.user_id=user_id
 
 
-class Email(Entity, db.Model):
+class Message(Entity, db.Model):
     __tablename__ = 'emails'
 
     id = db.Column(db.Integer, primary_key=True)

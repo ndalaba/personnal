@@ -31,7 +31,7 @@ class User(Entity, UserMixin, db.Model):
     works = db.relationship('Work', back_populates="user")
     hobbies = db.relationship('Hobby', back_populates="user")
     activities = db.relationship('Activity', back_populates="user")
-    emails = db.relationship('Email', back_populates="user")
+    emails = db.relationship('Message', back_populates="user")
 
     @property
     def password(self):

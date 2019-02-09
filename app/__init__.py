@@ -18,7 +18,7 @@ login_manager = LoginManager(app)
 login_manager.login_message = "Veillez vous connecter!"
 login_manager.login_view = "auth.login"
 
-from .entity.Entities import Job, Service, Skill, Work, Education, Hobby, Activity, Email
+from .entity.Entities import Job, Service, Skill, Work, Education, Hobby, Activity, Message
 from .entity.User import User
 
 from .admin import admin as admin_blueprint
