@@ -3,4 +3,4 @@ venv
 .vscode
 node_modules
 .idea
-instance/config.py
+instance
