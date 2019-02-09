@@ -7,6 +7,7 @@ from app.repository.Repository import repository
 from flask_mail import Message
 from app import mail
 
+
 @admin.route('/messages')
 @login_required
 def messages():
@@ -64,6 +65,7 @@ def repondre(uid):
     new_mail.email_to=email.email_from
     new_mail.subject = "Re: %s" % email.subject
     return render_template('admin/messages/compose.html', email=new_mail)
+
 
 @admin.route('/message/supprimer/<uid>')
 @login_required

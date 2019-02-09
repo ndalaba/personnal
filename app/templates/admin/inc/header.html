@@ -31,17 +31,17 @@
                   <li>
                     <!-- inner menu: contains the actual data -->
                     <ul class="menu">
-                      {% for email in emails %}
+                      {% for unread_mail in unread_mails %}
                       <li><!-- start message -->
-                        <a href="{{url_for('admin.read',uid=email.uid)}}">
+                        <a href="{{url_for('admin.read',uid=unread_mail.uid)}}">
                           <div class="pull-left">
                             <img src="{{url_for('static',filename=current_user.photo)}}" class="img-circle" alt="{{current_user.name}}">
                           </div>
                           <h4>
-                            {{email.name}}
-                            <small><i class="fa fa-clock-o"></i> {{email.created_at | datetimeformat('%d/%m %H:%M')}}</small>
+                            {{unread_mail.name}}
+                            <small><i class="fa fa-clock-o"></i> {{unread_mail.created_at | datetimeformat('%d/%m %H:%M')}}</small>
                           </h4>
-                          <p>{{email.subject}}</p>
+                          <p>{{unread_mail.subject}}</p>
                         </a>
                       </li>
                       {% endfor %}
