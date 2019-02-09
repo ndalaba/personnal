@@ -62,7 +62,7 @@
                         <div class="tab-pane fade in active" id="bio">
                             <h3>BIO</h3>
                             <h4>A PROPOS DE MOI</h4>
-                            <p>{{ user.bio }}</p>
+                            <p>{{ user.bio | safe }}</p>
                         </div>
                         <div class="tab-pane fade" id="hobbies">
                             <h3>LOISIRS</h3>
