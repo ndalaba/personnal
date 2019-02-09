@@ -19,7 +19,7 @@ def messages():
 @admin.route('/messages/envoyes')
 @login_required
 def send_messages():
-    emails = Email.query.filter_by(user_id=current_user.id,folder='SEND').order_by(text('created_at DESC'))[0:15]
+    emails = Email.query.filter_by(user_id=current_user.id,folder='SEND').order_by(text('created_at DESC'))[:15]
     return render_template('admin/messages/index.html', emails=emails)
 
 
