@@ -6,7 +6,7 @@ from app.entity.Entities import Activity
 from app.repository.Repository import repository
 from app.utils.upload import uploadImage
 from . import admin
-from sqlalchemy import text
+
 
 
 @admin.route('/home')
