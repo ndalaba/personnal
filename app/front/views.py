@@ -18,8 +18,8 @@ def index():
     user = User.query.filter_by(uid='a6c5a240').first()
     color = url_for('static', filename="css/colors/" + random.choice(colors))
     form = EmailForm()
-    jobs = Job.query.filter_by(uid=user.id,published=True).order_by(text('end_at DESC')).all()
-    educations = Education.query.filter_by(uid=user.id,published=True).order_by(text('end_at DESC')).all()
+    jobs = Job.query.filter_by(user_id=user.id,published=True).order_by(text('end_at DESC')).all()
+    educations = Education.query.filter_by(user_id=user.id,published=True).order_by(text('end_at DESC')).all()
     return render_template('front/base.html', user=user, color=color, form=form,jobs=jobs,educations=educations)
 
 

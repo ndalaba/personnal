@@ -10,7 +10,7 @@
                 <li class="time-label">
                     <span class="content-title">FORMATION</span>
                 </li>
-                {% for education in user.educations %}
+                {% for education in educations %}
                 {% if education.published %}
                 <li>
                     <div class="resume-tag">
@@ -36,7 +36,7 @@
                 <li class="time-label">
                     <span class="content-title">EMPLOI ET EXPÉRIENCE</span>
                 </li>
-             {% for job in user.jobs %}
+             {% for job in jobs %}
                 {% if job.published %}
                 <li>
                     <div class="resume-tag">
