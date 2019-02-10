@@ -2,12 +2,13 @@ import random
 
 from flask import render_template, url_for, jsonify, redirect, request
 
-from app.entity.Entities import Message
+from app.entity.Entities import Message, Job, Education
 from app.entity.User import User
 from app.repository.Repository import repository
 from . import front
 from .form import EmailForm
 from flask_mail import Message as Msg
+from sqlalchemy import text
 from app import mail
 
 
@@ -17,7 +18,9 @@ def index():
     user = User.query.filter_by(uid='a6c5a240').first()
     color = url_for('static', filename="css/colors/" + random.choice(colors))
     form = EmailForm()
-    return render_template('front/base.html', user=user, color=color, form=form)
+    jobs = Job.query.filter_by(uid=user.id,published=True).order_by(text('end_at DESC')).all()
+    educations = Education.query.filter_by(uid=user.id,published=True).order_by(text('end_at DESC')).all()
+    return render_template('front/base.html', user=user, color=color, form=form,jobs=jobs,educations=educations)
 
 
 @front.route('/contact', methods=['POST'])

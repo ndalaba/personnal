@@ -49,9 +49,9 @@
                     </div>
                     <div class="timeline-item">
                         <span class="timeline-location"><i class="fa fa-map-marker"></i>{{ job.location }}</span>
-                        <h3 class="timeline-header">{{ job.title }}</h3>
+                        <h3 class="timeline-header">{{ job.title | upper }}</h3>
                         <div class="timeline-body">
-                            <h4>{{ job.compaby }}</h4>
+                            <h4>{{ job.company }}</h4>
                             <span>{{ job.description }}</span>
                         </div>
                     </div>
