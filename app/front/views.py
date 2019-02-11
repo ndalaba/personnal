@@ -2,7 +2,7 @@ import random
 
 from flask import render_template, url_for, jsonify, redirect, request
 
-from app.entity.Entities import Message, Job, Education
+from app.entity.Entities import Message, Job, Education,Work
 from app.entity.User import User
 from app.repository.Repository import repository
 from . import front
@@ -20,7 +20,8 @@ def index():
     form = EmailForm()
     jobs = Job.query.filter_by(user_id=user.id,published=True).order_by(text('end_at DESC')).all()
     educations = Education.query.filter_by(user_id=user.id,published=True).order_by(text('end_at DESC')).all()
-    return render_template('front/base.html', user=user, color=color, form=form,jobs=jobs,educations=educations)
+    personal_works= Work.query.filter_by(user_id=user.id,published=True,category="PERSONAL").all()
+    return render_template('front/base.html', user=user, color=color, form=form,jobs=jobs,educations=educations, personal_works=personal_works)
 
 
 @front.route('/contact', methods=['POST'])

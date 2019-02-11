@@ -8,7 +8,7 @@
             {% for service in user.services %}
                 {% if service.published %}
                     <div class="serv-wrap animated slideInDown">
-                        <span class="{{ service.icon }}"></span>
+                        <span class="{{ service.icon }} serv-icons"></span>
                         <h3>{{ service.service }}</h3>
                         <p>{{ service.description }}</p>
                         <div class="slide">
@@ -19,7 +19,7 @@
                 {% endif %}
             {% endfor %}
         </div>
-        {# <span class="content-title">WHAT OUR CLIENTS SAYING</span>
+        {# <span class="content-title">CE QUE NOS CLIENTS DISENT</span>
         <div class="testimonials-container">
             <div class="testimonial">
                 <figure class="testimonial__mug">
