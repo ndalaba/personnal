@@ -4,7 +4,7 @@
         <span class="before-title">.07</span>
         <h2>RÉALISATIONS</h2>
         <div class="portfolio">
-            {% for work in user.works %}
+            {% for work in works %}
                 {% if work.published %}
                     <figure class="effect-milo">
                         <img src="{{ url_for('static',filename=work.image) }}" alt="{{ work.title }}" width="282" height="222">

@@ -18,10 +18,11 @@ def index():
     user = User.query.filter_by(uid='a6c5a240').first()
     color = url_for('static', filename="css/colors/" + random.choice(colors))
     form = EmailForm()
-    jobs = Job.query.filter_by(user_id=user.id,published=True).order_by(text('end_at DESC')).all()
-    educations = Education.query.filter_by(user_id=user.id,published=True).order_by(text('end_at DESC')).all()
-    personal_works= Work.query.filter_by(user_id=user.id,published=True,category="PERSONAL").all()
-    return render_template('front/base.html', user=user, color=color, form=form,jobs=jobs,educations=educations, personal_works=personal_works)
+    jobs = Job.query.filter(Job.user_id==user.id,Job.published==True).order_by(text('end_at DESC')).all()
+    educations = Education.query.filter(Education.user_id==user.id,Education.published==True).order_by(text('end_at DESC')).all()
+    personal_works= Work.query.filter(Work.user_id==user.id,Work.published==True,Work.category=="PERSONAL").all()
+    works= Work.query.filter(Work.user_id==user.id,Work.published==True,Work.category!="PERSONAL").all()
+    return render_template('front/base.html', user=user, color=color, form=form,jobs=jobs,educations=educations, personal_works=personal_works,works=works)
 
 
 @front.route('/contact', methods=['POST'])
