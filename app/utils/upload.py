@@ -10,7 +10,7 @@ def uploadImage(image, path=''):
     filename = random_ex + f_ext
     image_path = os.path.join(current_app.root_path, 'static/' + path, filename)
 
-    size = (560, 420)
+    size = (1200,840)
     im = Image.open(image)
     im.thumbnail(size)
     im.save(image_path)
