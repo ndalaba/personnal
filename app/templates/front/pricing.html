@@ -13,7 +13,7 @@
                 </div>
                 <div class="pricing-table-content">
                     {{personal_work.description | safe}}
-                    <a class="signup" target="_blank" href="{{personal_work.url}}">Consulter</a>
+                    <a class="signup" target="_blank" title="{{personal_work.title}}" href="{{personal_work.url}}">Consulter</a>
                 </div>
             </div>
             {% endfor %}
