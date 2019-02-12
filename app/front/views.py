@@ -21,7 +21,8 @@ def index():
     jobs = Job.query.filter(Job.user_id==user.id,Job.published==True).order_by(text('end_at DESC')).all()
     educations = Education.query.filter(Education.user_id==user.id,Education.published==True).order_by(text('end_at DESC')).all()
     personal_works= Work.query.filter(Work.user_id==user.id,Work.published==True,Work.category=="PERSONAL").all()
-    works= Work.query.filter(Work.user_id==user.id,Work.published==True,Work.category!="PERSONAL").all()
+    #works= Work.query.filter(Work.user_id==user.id,Work.published==True,Work.category!="PERSONAL").all()
+    works= Work.query.filter(Work.user_id==user.id,Work.published==True).all()
     return render_template('front/base.html', user=user, color=color, form=form,jobs=jobs,educations=educations, personal_works=personal_works,works=works)
 
 
